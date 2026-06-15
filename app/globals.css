@@ -1,0 +1,142 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+:root {
+  /* Brand — eco (greens) */
+  --eco-lime: #9dd53a;
+  --eco-green: #5cbe49;
+  --eco-green-deep: #37a94b;
+  --eco-forest: #1f7a3d;
+
+  /* Brand — paint (warm) */
+  --paint-amber: #fba63c;
+  --paint-orange: #f47a29;
+  --paint-orange-deep: #ee5524;
+
+  /* Neutrals */
+  --bg: #fbfcf7;
+  --bg-soft: #f2f5ea;
+  --ink: #15231b;
+  --ink-soft: #46564c;
+  --line: #e4e9da;
+  --white: #ffffff;
+
+  /* Gradients */
+  --grad-eco: linear-gradient(
+    100deg,
+    var(--eco-lime),
+    var(--eco-green) 55%,
+    var(--eco-green-deep)
+  );
+  --grad-paint: linear-gradient(
+    100deg,
+    var(--paint-amber),
+    var(--paint-orange) 50%,
+    var(--paint-orange-deep)
+  );
+  --grad-hero: radial-gradient(
+      40% 60% at 15% 20%,
+      color-mix(in oklab, var(--eco-lime) 55%, transparent),
+      transparent 70%
+    ),
+    radial-gradient(
+      45% 55% at 85% 15%,
+      color-mix(in oklab, var(--paint-amber) 55%, transparent),
+      transparent 70%
+    ),
+    radial-gradient(
+      50% 60% at 75% 85%,
+      color-mix(in oklab, var(--paint-orange) 45%, transparent),
+      transparent 70%
+    ),
+    radial-gradient(
+      50% 60% at 20% 90%,
+      color-mix(in oklab, var(--eco-green) 40%, transparent),
+      transparent 70%
+    );
+
+  /* Elevation */
+  --shadow-sm: 0 2px 8px -2px color-mix(in oklab, var(--eco-forest) 18%, transparent);
+  --shadow-md: 0 16px 40px -12px color-mix(in oklab, var(--eco-forest) 22%, transparent);
+  --shadow-glow-eco: 0 10px 50px -8px color-mix(in oklab, var(--eco-green) 55%, transparent);
+  --shadow-glow-paint: 0 10px 50px -8px
+    color-mix(in oklab, var(--paint-orange) 55%, transparent);
+
+  /* Radii */
+  --r-sm: 12px;
+  --r-md: 20px;
+  --r-lg: 32px;
+  --r-xl: 44px;
+  --r-pill: 999px;
+
+  /* Typography scale */
+  --step--1: clamp(0.83rem, 0.78rem + 0.25vw, 0.95rem);
+  --step-0: clamp(1rem, 0.93rem + 0.35vw, 1.18rem);
+  --step-1: clamp(1.3rem, 1.15rem + 0.7vw, 1.6rem);
+  --step-2: clamp(1.7rem, 1.4rem + 1.4vw, 2.4rem);
+  --step-3: clamp(2.2rem, 1.7rem + 2.6vw, 3.6rem);
+  --step-4: clamp(2.9rem, 2rem + 4.4vw, 5.4rem);
+  --step-5: clamp(3.6rem, 2.2rem + 7vw, 7.5rem);
+}
+
+@layer base {
+  html {
+    scroll-behavior: auto;
+  }
+
+  html.lenis,
+  html.lenis body {
+    height: auto;
+  }
+
+  .lenis.lenis-smooth {
+    scroll-behavior: auto !important;
+  }
+
+  body {
+    @apply bg-bg font-body text-step-0 text-ink antialiased;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-display font-semibold tracking-tight;
+  }
+
+  ::selection {
+    background: color-mix(in oklab, var(--eco-lime) 40%, transparent);
+  }
+}
+
+@layer utilities {
+  .text-gradient-eco {
+    background: var(--grad-eco);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .text-gradient-paint {
+    background: var(--grad-paint);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .focus-ring {
+    @apply outline-none ring-2 ring-eco-green ring-offset-2 ring-offset-bg;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

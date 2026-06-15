@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#FBFCF7"/>
+      <stop offset="1" stop-color="#F2F5EA"/>
+    </linearGradient>
+    <linearGradient id="eco" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#9DD53A"/>
+      <stop offset="1" stop-color="#37A94B"/>
+    </linearGradient>
+    <linearGradient id="paint" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#FBA63C"/>
+      <stop offset="1" stop-color="#EE5524"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <circle cx="200" cy="180" r="120" fill="#9DD53A" opacity="0.3"/>
+  <circle cx="1000" cy="120" r="100" fill="#FBA63C" opacity="0.3"/>
+  <text x="100" y="380" font-family="Fredoka, sans-serif" font-size="96" font-weight="700" fill="url(#eco)">ECO</text>
+  <text x="100" y="500" font-family="Fredoka, sans-serif" font-size="96" font-weight="700" fill="url(#paint)">PINTURA</text>
+  <text x="100" y="580" font-family="Plus Jakarta Sans, sans-serif" font-size="32" fill="#46564C">Color con conciencia.</text>
+</svg>

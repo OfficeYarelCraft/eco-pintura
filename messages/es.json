@@ -1,0 +1,240 @@
+{
+  "metadata": {
+    "title": "Eco Pintura — Pintura ecológica profesional",
+    "description": "Pinturas sin COV, libres de tóxicos y de bajo impacto ambiental. Acabados impecables para tu hogar y negocio. Color con conciencia.",
+    "tagline": "Color con conciencia."
+  },
+  "nav": {
+    "home": "Inicio",
+    "services": "Servicios",
+    "process": "Proceso",
+    "projects": "Proyectos",
+    "about": "Nosotros",
+    "contact": "Contacto",
+    "quote": "Presupuesto"
+  },
+  "hero": {
+    "eyebrow": "Pintura ecológica profesional",
+    "titleBefore": "Dale",
+    "titleHighlight": "vida",
+    "titleAfter": "a tus espacios, sin dañar el planeta.",
+    "subtitle": "Pinturas sin COV, libres de tóxicos y de bajo impacto ambiental. Acabados impecables para tu hogar y tu negocio.",
+    "ctaPrimary": "Solicita presupuesto gratis",
+    "ctaSecondary": "Ver proyectos",
+    "trust": "+500 proyectos · Pinturas certificadas · 0 COV",
+    "scrollCue": "Descubre más",
+    "proofZeroVoc": "0 COV",
+    "proofCertified": "Certificadas",
+    "proofEco": "Eco-friendly"
+  },
+  "marquee": {
+    "items": ["Zero VOC", "Eco-Cert", "Low-Impact", "Pintura sostenible", "Sin tóxicos", "Bajo impacto"]
+  },
+  "services": {
+    "eyebrow": "Servicios",
+    "title": "Pintura profesional, consciente y sin compromisos",
+    "intro": "Cada proyecto recibe la misma atención artesanal y el mismo compromiso ecológico.",
+    "interior": {
+      "title": "Interiores",
+      "description": "Paredes, techos y detalles con acabados sanos que respiran. Sin olores tóxicos, listos para habitar."
+    },
+    "exterior": {
+      "title": "Exteriores",
+      "description": "Fachadas resistentes al clima con pinturas de bajo impacto y máxima durabilidad."
+    },
+    "commercial": {
+      "title": "Comercial",
+      "description": "Oficinas, comercios y hostelería. Trabajamos sin interrumpir tu negocio."
+    },
+    "consulting": {
+      "title": "Asesoría eco",
+      "description": "Te ayudamos a elegir colores y materiales sostenibles a tu medida."
+    },
+    "viewAll": "Ver todos los servicios"
+  },
+  "impact": {
+    "eyebrow": "Impacto",
+    "title": "Pintura que respeta tu salud y el planeta",
+    "intro": "Usamos exclusivamente pinturas al agua sin compuestos orgánicos volátiles. Mejor aire interior, cero residuos peligrosos y la misma calidad profesional de siempre.",
+    "stats": {
+      "projects": { "value": "+500", "label": "proyectos completados" },
+      "voc": { "value": "0 COV", "label": "compuestos tóxicos" },
+      "certified": { "value": "100%", "label": "pinturas certificadas" },
+      "carbon": { "value": "−40%", "label": "huella de carbono" }
+    },
+    "comparison": {
+      "conventional": "Convencional",
+      "eco": "Eco Pintura",
+      "vocLabel": "COV emitidos",
+      "odorLabel": "Olor al secar",
+      "dryTimeLabel": "Reocupación"
+    }
+  },
+  "process": {
+    "eyebrow": "Proceso",
+    "title": "Así trabajamos contigo",
+    "intro": "Un proceso claro, sin sorpresas, de la primera consulta al último detalle.",
+    "steps": {
+      "1": {
+        "title": "Consulta y presupuesto",
+        "description": "Escuchamos tu proyecto y te damos un presupuesto claro y gratuito."
+      },
+      "2": {
+        "title": "Color y materiales",
+        "description": "Elegimos juntos tonos y acabados ecológicos."
+      },
+      "3": {
+        "title": "Preparación y protección",
+        "description": "Protegemos tus muebles y suelos; dejamos cada superficie lista."
+      },
+      "4": {
+        "title": "Aplicación y acabado",
+        "description": "Aplicamos con técnica profesional para un resultado impecable."
+      },
+      "5": {
+        "title": "Revisión y limpieza",
+        "description": "Repasamos contigo el resultado y lo dejamos todo impecable."
+      }
+    }
+  },
+  "gallery": {
+    "eyebrow": "Proyectos",
+    "title": "Espacios que hablan por nosotros",
+    "intro": "Cada pared cuenta una historia de color, calidad y respeto ambiental.",
+    "filters": {
+      "all": "Todos",
+      "interior": "Interiores",
+      "exterior": "Exteriores",
+      "commercial": "Comercial"
+    },
+    "beforeAfter": {
+      "label": "Antes / Después",
+      "before": "Antes",
+      "after": "Después",
+      "dragHint": "Arrastra para comparar"
+    },
+    "viewAll": "Ver galería completa",
+    "cta": "¿Te gusta lo que ves? Solicita presupuesto"
+  },
+  "testimonials": {
+    "eyebrow": "Testimonios",
+    "title": "Lo que dicen nuestros clientes",
+    "sampleNote": "Contenido de muestra",
+    "items": [
+      {
+        "quote": "El acabado es impecable y por fin un proyecto sin olores químicos en casa.",
+        "name": "María G.",
+        "role": "Propietaria, {city}",
+        "rating": 5
+      },
+      {
+        "quote": "Profesionales, puntuales y muy cuidadosos. El salón quedó listo el mismo día.",
+        "name": "Carlos R.",
+        "role": "Arquitecto, {city}",
+        "rating": 5
+      },
+      {
+        "quote": "Pintamos toda la oficina sin cerrar un solo día. Increíble equipo.",
+        "name": "Laura M.",
+        "role": "Directora, {company}",
+        "rating": 5
+      }
+    ]
+  },
+  "about": {
+    "eyebrow": "Nosotros",
+    "title": "Pintar bonito y pintar responsable van de la mano",
+    "intro": "Somos un equipo de profesionales que cree que pintar bonito y pintar responsable no están reñidos.",
+    "values": {
+      "health": { "title": "Salud", "description": "Aire limpio en cada espacio que transformamos." },
+      "sustainability": { "title": "Sostenibilidad", "description": "Materiales de bajo impacto, sin comprometer calidad." },
+      "quality": { "title": "Calidad", "description": "Acabados impecables con técnica artesanal." },
+      "closeness": { "title": "Cercanía", "description": "Trato directo, presupuestos claros y sin sorpresas." }
+    }
+  },
+  "faq": {
+    "eyebrow": "FAQ",
+    "title": "Preguntas frecuentes",
+    "items": [
+      {
+        "question": "¿Qué es una pintura sin COV?",
+        "answer": "Las pinturas sin COV (compuestos orgánicos volátiles) no emiten gases tóxicos al secar. Son pinturas al agua, de bajo olor y mucho más saludables para tu hogar y el medio ambiente."
+      },
+      {
+        "question": "¿Es más cara la pintura ecológica?",
+        "answer": "El coste por litro puede ser ligeramente superior, pero la calidad de cobertura y durabilidad son comparables. Además, evitas costes de ventilación prolongada y reocupación más rápida."
+      },
+      {
+        "question": "¿Cuánto tarda en secar y puedo habitar enseguida?",
+        "answer": "Las pinturas ecológicas secan al tacto en 1–2 horas y permiten reocupar la estancia el mismo día o al día siguiente, según ventilación y humedad."
+      },
+      {
+        "question": "¿En qué zonas trabajáis?",
+        "answer": "Prestamos servicio en {serviceArea} y alrededores. Contáctanos para confirmar disponibilidad en tu zona."
+      },
+      {
+        "question": "¿Ofrecéis garantía?",
+        "answer": "Sí. Todos nuestros trabajos incluyen garantía de acabado. Si detectas cualquier defecto dentro del periodo acordado, lo corregimos sin coste adicional."
+      }
+    ]
+  },
+  "cta": {
+    "eyebrow": "Presupuesto",
+    "title": "¿List@ para transformar tu espacio?",
+    "subtitle": "Cuéntanos tu proyecto y te respondemos en menos de 24 horas. Sin compromiso."
+  },
+  "form": {
+    "name": "Nombre",
+    "email": "Email",
+    "phone": "Teléfono",
+    "projectType": "Tipo de proyecto",
+    "message": "Mensaje",
+    "photoNote": "¿Tienes fotos? Escríbenos y te indicamos cómo enviarlas.",
+    "projectTypes": {
+      "interior": "Interior",
+      "exterior": "Exterior",
+      "commercial": "Comercial",
+      "other": "Otro"
+    },
+    "submit": "Enviar solicitud",
+    "submitting": "Enviando…",
+    "success": "¡Gracias! Te contactaremos en menos de 24 h.",
+    "errors": {
+      "nameRequired": "El nombre es obligatorio",
+      "emailInvalid": "Introduce un email válido",
+      "phoneRequired": "El teléfono es obligatorio",
+      "projectTypeRequired": "Selecciona un tipo de proyecto",
+      "messageMin": "Cuéntanos un poco más (mínimo 10 caracteres)"
+    }
+  },
+  "footer": {
+    "tagline": "Color con conciencia.",
+    "links": "Enlaces",
+    "servicesTitle": "Servicios",
+    "contactTitle": "Contacto",
+    "newsletter": "Newsletter",
+    "newsletterPlaceholder": "Tu email",
+    "newsletterButton": "Suscribirse",
+    "location": "Pintura ecológica · {city}",
+    "madeWith": "Hecho con 🌿",
+    "rights": "Todos los derechos reservados."
+  },
+  "pages": {
+    "projects": {
+      "title": "Nuestros proyectos",
+      "description": "Galería de proyectos de pintura ecológica — interiores, exteriores y comercial."
+    },
+    "services": {
+      "title": "Servicios de pintura ecológica",
+      "description": "Interiores, exteriores, comercial y asesoría eco. Pintura profesional sin COV."
+    },
+    "contact": {
+      "title": "Contacto y presupuesto",
+      "description": "Solicita tu presupuesto gratuito. Respondemos en menos de 24 horas."
+    }
+  },
+  "common": {
+    "learnMore": "Saber más",
+    "backHome": "Volver al inicio"
+  }
+}
