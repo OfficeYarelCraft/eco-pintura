@@ -53,11 +53,11 @@ export function Navbar() {
     >
       <nav
         aria-label="Main"
-        className="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 lg:px-8"
+        className="mx-auto flex max-w-7xl items-center justify-between gap-2 px-4 py-3 sm:px-5 sm:py-4 lg:px-8"
       >
-        <Link aria-label={t("home")} href="/">
+        <Link aria-label={t("home")} className="shrink-0" href="/">
           <m.div style={{ scale: logoScale }}>
-            <Logo className="h-10 w-auto md:h-11" />
+            <Logo className="h-8 w-auto sm:h-10 md:h-11" />
           </m.div>
         </Link>
 
@@ -83,8 +83,8 @@ export function Navbar() {
           </Button>
         </div>
 
-        <div className="flex items-center gap-2 lg:hidden">
-          <LanguageSwitcher />
+        <div className="flex shrink-0 items-center gap-1.5 sm:gap-2 lg:hidden">
+          <LanguageSwitcher compact />
           <Sheet onOpenChange={setOpen} open={open}>
             <SheetTrigger
               aria-label="Open menu"

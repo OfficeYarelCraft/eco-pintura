@@ -33,7 +33,7 @@ const SheetContent = React.forwardRef<
     <SheetOverlay />
     <DialogPrimitive.Content
       className={cn(
-        "fixed inset-y-0 right-0 z-50 flex w-full max-w-md flex-col bg-bg p-8 shadow-brand-md data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:slide-out-to-right data-[state=open]:slide-in-from-right",
+        "fixed inset-y-0 right-0 z-50 flex w-full max-w-full flex-col bg-bg p-6 shadow-brand-md sm:max-w-md sm:p-8 data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:slide-out-to-right data-[state=open]:slide-in-from-right",
         className,
       )}
       ref={ref}

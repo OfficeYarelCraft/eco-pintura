@@ -2,7 +2,6 @@
 
 import { useCallback, useRef, useState } from "react";
 import { m } from "motion/react";
-import { cn } from "@/lib/utils";
 
 interface BeforeAfterSliderProps {
   beforeColor: string;
@@ -49,7 +48,7 @@ export function BeforeAfterSlider({
   return (
     <div
       aria-label={label}
-      className="relative aspect-[16/9] w-full overflow-hidden rounded-xl-brand shadow-brand-md"
+      className="relative aspect-[4/3] w-full overflow-hidden rounded-xl-brand shadow-brand-md sm:aspect-[16/9]"
       ref={containerRef}
       role="img"
     >
@@ -66,7 +65,7 @@ export function BeforeAfterSlider({
         aria-valuemax={100}
         aria-valuemin={0}
         aria-valuenow={Math.round(position)}
-        className="absolute bottom-0 top-0 z-10 w-1 cursor-ew-resize bg-white shadow-brand-md focus-visible:focus-ring"
+        className="absolute bottom-0 top-0 z-10 w-1 -translate-x-1/2 cursor-ew-resize bg-white shadow-brand-md focus-visible:focus-ring"
         onKeyDown={onKeyDown}
         onPointerDown={onPointerDown}
         onPointerMove={onPointerMove}
@@ -76,9 +75,7 @@ export function BeforeAfterSlider({
         tabIndex={0}
       >
         <span
-          className={cn(
-            "absolute left-1/2 top-1/2 flex h-10 w-10 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-white shadow-brand-md",
-          )}
+          className="absolute left-1/2 top-1/2 flex h-9 w-9 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-white text-sm shadow-brand-sm sm:h-10 sm:w-10 sm:shadow-brand-md"
         >
           ↔
         </span>

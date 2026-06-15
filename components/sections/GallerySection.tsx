@@ -43,8 +43,8 @@ export function GallerySection({ fullPage = false }: { fullPage?: boolean }) {
     filter === "all" ? items : items.filter((item) => item.category === filter);
 
   return (
-    <section className="py-24 lg:py-32" id="proyectos">
-      <div className="mx-auto max-w-7xl px-5 lg:px-8">
+    <section className="py-16 sm:py-24 lg:py-32" id="proyectos">
+      <div className="mx-auto max-w-7xl px-4 sm:px-5 lg:px-8">
         <SectionHeading
           eyebrow={t("eyebrow")}
           intro={t("intro")}
@@ -59,11 +59,11 @@ export function GallerySection({ fullPage = false }: { fullPage?: boolean }) {
           />
         </Reveal>
 
-        <div className="mt-10 flex flex-wrap gap-2">
+        <div className="mt-8 flex gap-2 overflow-x-auto pb-1 [-ms-overflow-style:none] [scrollbar-width:none] sm:flex-wrap sm:overflow-visible [&::-webkit-scrollbar]:hidden">
           {filters.map((f) => (
             <button
               className={cn(
-                "rounded-pill px-4 py-2 text-step--1 font-semibold transition-colors focus-visible:focus-ring",
+                "shrink-0 rounded-pill px-4 py-2 text-step--1 font-semibold transition-colors focus-visible:focus-ring sm:shrink",
                 filter === f.key
                   ? "bg-grad-eco text-white"
                   : "bg-white text-ink-soft hover:bg-bg-soft",
@@ -84,11 +84,11 @@ export function GallerySection({ fullPage = false }: { fullPage?: boolean }) {
         </div>
 
         {!fullPage && (
-          <Reveal className="mt-12 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
-            <Button asChild variant="ghost">
+          <Reveal className="mt-10 flex w-full flex-col gap-3 sm:flex-row sm:justify-center sm:gap-4">
+            <Button asChild className="w-full sm:w-auto" variant="ghost">
               <Link href="/proyectos">{t("viewAll")}</Link>
             </Button>
-            <Button asChild>
+            <Button asChild className="w-full sm:w-auto">
               <Link href="/contacto">{t("cta")}</Link>
             </Button>
           </Reveal>

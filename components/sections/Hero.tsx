@@ -34,7 +34,7 @@ export function Hero() {
       id="inicio"
       ref={heroRef}
     >
-      <m.div className="absolute inset-0" style={{ y: reduced ? 0 : bgY }}>
+      <m.div className="absolute inset-0 overflow-hidden" style={{ y: reduced ? 0 : bgY }}>
         <MeshBackground />
       </m.div>
       <Particles />
@@ -42,7 +42,7 @@ export function Hero() {
 
       <m.div
         animate="show"
-        className="relative z-10 mx-auto flex min-h-[100svh] max-w-7xl flex-col justify-center px-5 pb-24 pt-28 lg:px-8"
+        className="relative z-10 mx-auto flex min-h-[100svh] max-w-7xl flex-col justify-center px-4 pb-20 pt-24 sm:px-5 sm:pb-24 sm:pt-28 lg:px-8"
         initial="hidden"
         style={{
           y: reduced ? 0 : contentY,
@@ -51,16 +51,16 @@ export function Hero() {
         }}
         variants={containerVariants}
       >
-        <div className="grid items-center gap-12 lg:grid-cols-[1.2fr_0.8fr]">
-          <div>
+        <div className="grid items-center gap-8 lg:grid-cols-[1.2fr_0.8fr] lg:gap-12">
+          <div className="min-w-0">
             <m.div variants={variants}>
-              <Pill className="mb-6" icon>
+              <Pill className="mb-4 sm:mb-6" icon>
                 {t("eyebrow")}
               </Pill>
             </m.div>
 
             <m.h1
-              className="font-display text-step-5 font-semibold leading-[1.05] tracking-tight text-ink"
+              className="font-display text-step-5 font-semibold leading-[1.08] tracking-tight text-ink [overflow-wrap:anywhere]"
               id="hero-heading"
               variants={variants}
             >
@@ -72,13 +72,16 @@ export function Hero() {
             </m.h1>
 
             <m.p
-              className="mt-6 max-w-xl text-step-1 leading-relaxed text-ink-soft"
+              className="mt-4 max-w-xl text-step-0 leading-relaxed text-ink-soft sm:mt-6 sm:text-step-1"
               variants={variants}
             >
               {t("subtitle")}
             </m.p>
 
-            <m.div className="mt-10 flex flex-wrap gap-4" variants={variants}>
+            <m.div
+              className="mt-8 flex w-full flex-col gap-3 sm:mt-10 sm:w-auto sm:flex-row sm:flex-wrap sm:gap-4"
+              variants={variants}
+            >
               <MagneticButton href="#contacto">{t("ctaPrimary")}</MagneticButton>
               <MagneticButton href="#proyectos" variant="ghost">
                 {t("ctaSecondary")}
@@ -86,11 +89,20 @@ export function Hero() {
             </m.div>
 
             <m.p
-              className="mt-8 text-step--1 font-medium text-ink-soft"
+              className="mt-6 max-w-sm text-step--1 font-medium leading-relaxed text-ink-soft sm:mt-8"
               variants={variants}
             >
               {t("trust")}
             </m.p>
+
+            <m.div
+              className="mt-6 flex gap-2 overflow-x-auto pb-1 [-ms-overflow-style:none] [scrollbar-width:none] lg:hidden [&::-webkit-scrollbar]:hidden"
+              variants={variants}
+            >
+              <ProofPill compact icon={Leaf} label={t("proofZeroVoc")} />
+              <ProofPill compact icon={ShieldCheck} label={t("proofCertified")} />
+              <ProofPill compact icon={Sparkles} label={t("proofEco")} />
+            </m.div>
           </div>
 
           <m.div
@@ -114,7 +126,7 @@ export function Hero() {
 
       <m.div
         animate={{ opacity: 1, y: [0, 8, 0] }}
-        className="absolute bottom-8 left-1/2 z-10 flex -translate-x-1/2 flex-col items-center gap-2 text-ink-soft"
+        className="absolute bottom-6 left-1/2 z-10 flex -translate-x-1/2 flex-col items-center gap-2 text-ink-soft sm:bottom-8"
         initial={{ opacity: 0 }}
         transition={{
           opacity: { delay: 1.4, duration: 0.5 },
@@ -145,16 +157,32 @@ export function Hero() {
 function ProofPill({
   icon: Icon,
   label,
+  compact = false,
 }: {
   icon: React.ComponentType<{ className?: string }>;
   label: string;
+  compact?: boolean;
 }) {
   return (
-    <div className="flex items-center gap-3 rounded-lg-brand bg-bg/60 px-4 py-3">
-      <span className="flex h-10 w-10 items-center justify-center rounded-full bg-grad-eco text-white">
-        <Icon className="h-5 w-5" />
+    <div
+      className={`flex shrink-0 items-center gap-2 rounded-lg-brand bg-bg/60 sm:gap-3 ${
+        compact ? "px-3 py-2" : "px-4 py-3"
+      }`}
+    >
+      <span
+        className={`flex items-center justify-center rounded-full bg-grad-eco text-white ${
+          compact ? "h-8 w-8" : "h-10 w-10"
+        }`}
+      >
+        <Icon className={compact ? "h-4 w-4" : "h-5 w-5"} />
       </span>
-      <span className="font-display text-step-1 font-semibold text-ink">{label}</span>
+      <span
+        className={`whitespace-nowrap font-display font-semibold text-ink ${
+          compact ? "text-step--1" : "text-step-1"
+        }`}
+      >
+        {label}
+      </span>
     </div>
   );
 }

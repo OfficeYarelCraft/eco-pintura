@@ -4,11 +4,11 @@ import { m, useReducedMotion } from "motion/react";
 import { ease } from "@/lib/motion";
 
 const blobs = [
-  { color: "var(--eco-lime)", x: "10%", y: "15%", size: 420, duration: 18, delay: 0 },
-  { color: "var(--paint-amber)", x: "75%", y: "10%", size: 380, duration: 20, delay: 2 },
-  { color: "var(--paint-orange)", x: "70%", y: "70%", size: 450, duration: 22, delay: 4 },
-  { color: "var(--eco-green)", x: "15%", y: "75%", size: 400, duration: 16, delay: 1 },
-  { color: "var(--eco-green-deep)", x: "45%", y: "40%", size: 320, duration: 19, delay: 3 },
+  { color: "var(--eco-lime)", x: "5%", y: "12%", size: 220, sizeLg: 420, duration: 18, delay: 0 },
+  { color: "var(--paint-amber)", x: "70%", y: "8%", size: 200, sizeLg: 380, duration: 20, delay: 2 },
+  { color: "var(--paint-orange)", x: "65%", y: "65%", size: 240, sizeLg: 450, duration: 22, delay: 4 },
+  { color: "var(--eco-green)", x: "10%", y: "70%", size: 210, sizeLg: 400, duration: 16, delay: 1 },
+  { color: "var(--eco-green-deep)", x: "40%", y: "38%", size: 180, sizeLg: 320, duration: 19, delay: 3 },
 ];
 
 export function MeshBackground() {
@@ -33,10 +33,10 @@ export function MeshBackground() {
           style={{
             left: blob.x,
             top: blob.y,
-            width: blob.size,
-            height: blob.size,
+            width: `clamp(${blob.size}px, 55vw, ${blob.sizeLg}px)`,
+            height: `clamp(${blob.size}px, 55vw, ${blob.sizeLg}px)`,
             background: blob.color,
-            filter: "blur(80px)",
+            filter: "blur(60px)",
           }}
           transition={{
             opacity: { duration: 1, type: "tween" },
@@ -56,7 +56,7 @@ export function BrushStroke() {
   return (
     <svg
       aria-hidden
-      className="pointer-events-none absolute -left-[5%] top-[28%] z-[1] w-[110%] max-w-none opacity-80"
+      className="pointer-events-none absolute left-0 top-[32%] z-[1] w-full max-w-full opacity-80 sm:top-[28%]"
       fill="none"
       viewBox="0 0 1200 200"
       xmlns="http://www.w3.org/2000/svg"
@@ -74,7 +74,7 @@ export function BrushStroke() {
         animate={{ pathLength: 1, opacity: 0.35 }}
         stroke="url(#brushGrad)"
         strokeLinecap="round"
-        strokeWidth="48"
+        strokeWidth="32"
         transition={{ duration: reduced ? 0.01 : 1.1, ease: ease.brand, delay: 0.2 }}
       />
     </svg>

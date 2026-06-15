@@ -24,7 +24,7 @@ export function Footer() {
         </svg>
       </div>
 
-      <div className="mx-auto max-w-7xl px-5 pb-8 lg:px-8">
+      <div className="mx-auto max-w-7xl px-4 pb-8 sm:px-5 lg:px-8">
         <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-4">
           <div>
             <Logo className="h-10 brightness-0 invert" variant="default" />
@@ -84,15 +84,18 @@ export function Footer() {
               <SocialLink href="{{SOCIAL_LINKEDIN}}" icon={Linkedin} label="LinkedIn" />
             </div>
 
-            <form className="mt-6 flex gap-2" onSubmit={(e) => e.preventDefault()}>
+            <form
+              className="mt-6 flex flex-col gap-2 sm:flex-row"
+              onSubmit={(e) => e.preventDefault()}
+            >
               <input
                 aria-label={t("newsletter")}
-                className="flex-1 rounded-pill border border-white/20 bg-white/10 px-4 py-2 text-step--1 text-white placeholder:text-white/50 focus-visible:focus-ring"
+                className="min-w-0 flex-1 rounded-pill border border-white/20 bg-white/10 px-4 py-2.5 text-step--1 text-white placeholder:text-white/50 focus-visible:focus-ring"
                 placeholder={t("newsletterPlaceholder")}
                 type="email"
               />
               <button
-                className="rounded-pill bg-grad-paint px-4 py-2 text-step--1 font-semibold focus-visible:focus-ring"
+                className="shrink-0 rounded-pill bg-grad-paint px-4 py-2.5 text-step--1 font-semibold focus-visible:focus-ring sm:py-2"
                 type="submit"
               >
                 {t("newsletterButton")}
@@ -101,11 +104,11 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-white/10 pt-8 text-step--1 text-white/50 sm:flex-row">
-          <p>
+        <div className="mt-12 flex flex-col items-center gap-3 border-t border-white/10 pt-8 text-center text-step--1 text-white/50 sm:flex-row sm:justify-between sm:text-left">
+          <p className="text-balance">
             © {year} Eco Pintura. {t("rights")}
           </p>
-          <p>{t("location", { city: placeholders.city })}</p>
+          <p className="text-balance">{t("location", { city: placeholders.city })}</p>
           <p>{t("madeWith")}</p>
         </div>
       </div>

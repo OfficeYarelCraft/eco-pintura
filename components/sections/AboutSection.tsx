@@ -12,9 +12,9 @@ export function AboutSection() {
   const t = useTranslations("about");
 
   return (
-    <section className="py-24 lg:py-32" id="nosotros">
-      <div className="mx-auto max-w-7xl px-5 lg:px-8">
-        <div className="grid items-start gap-16 lg:grid-cols-2">
+    <section className="py-16 sm:py-24 lg:py-32" id="nosotros">
+      <div className="mx-auto max-w-7xl px-4 sm:px-5 lg:px-8">
+        <div className="grid items-start gap-10 sm:gap-16 lg:grid-cols-2">
           <SectionHeading
             eyebrow={t("eyebrow")}
             intro={t("intro")}
@@ -22,7 +22,7 @@ export function AboutSection() {
           />
 
           <Reveal>
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 sm:gap-4">
               {valueKeys.map((key) => {
                 const Icon = valueIcons[key];
                 return (

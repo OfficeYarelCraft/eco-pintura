@@ -9,15 +9,15 @@ export function CtaSection() {
   const t = useTranslations("cta");
 
   return (
-    <section className="relative overflow-hidden py-24 lg:py-32" id="contacto">
+    <section className="relative overflow-hidden py-16 sm:py-24 lg:py-32" id="contacto">
       <div aria-hidden className="absolute inset-0 bg-grad-eco opacity-90" />
-      <div className="relative mx-auto max-w-7xl px-5 lg:px-8">
+      <div className="relative mx-auto max-w-7xl px-4 sm:px-5 lg:px-8">
         <div className="grid items-start gap-12 lg:grid-cols-2">
           <Reveal>
             <Pill className="border-white/30 bg-white/20 text-white" icon>
               {t("eyebrow")}
             </Pill>
-            <h2 className="mt-4 font-display text-step-3 font-semibold leading-tight text-white">
+            <h2 className="mt-4 font-display text-step-2 font-semibold leading-tight text-white sm:text-step-3">
               {t("title")}
             </h2>
             <p className="mt-4 max-w-md text-step-1 leading-relaxed text-white/85">

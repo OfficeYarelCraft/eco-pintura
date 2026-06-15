@@ -20,22 +20,33 @@ export function TestimonialsSection() {
   const items = t.raw("items") as Testimonial[];
 
   return (
-    <section className="bg-bg-soft py-24 lg:py-32" id="testimonios">
-      <div className="mx-auto max-w-7xl px-5 lg:px-8">
-        <SectionHeading
-          eyebrow={t("eyebrow")}
-          title={t("title")}
-        />
+    <section className="bg-bg-soft py-16 sm:py-24 lg:py-32" id="testimonios">
+      <div className="mx-auto max-w-7xl px-4 sm:px-5 lg:px-8">
+        <SectionHeading eyebrow={t("eyebrow")} title={t("title")} />
         <p className="mt-2 text-step--1 text-ink-soft italic">{t("sampleNote")}</p>
 
-        <div className="mt-12 overflow-hidden">
+        {/* Mobile: vertical stack with snap scroll */}
+        <div className="mt-8 flex snap-x snap-mandatory gap-4 overflow-x-auto pb-2 [-ms-overflow-style:none] [scrollbar-width:none] md:hidden [&::-webkit-scrollbar]:hidden">
+          {items.map((item, i) => (
+            <div className="w-[min(85vw,320px)] shrink-0 snap-center" key={item.name}>
+              <TestimonialCard index={i} item={item} />
+            </div>
+          ))}
+        </div>
+
+        {/* Tablet+: marquee */}
+        <div className="mt-12 hidden overflow-hidden md:block">
           <m.div
             animate={reduced ? undefined : { x: ["0%", "-50%"] }}
             className="flex w-max gap-6"
             transition={{ duration: 40, ease: "linear", repeat: Infinity }}
           >
             {[...items, ...items].map((item, i) => (
-              <TestimonialCard index={i % items.length} item={item} key={`${item.name}-${i}`} />
+              <TestimonialCard
+                index={i % items.length}
+                item={item}
+                key={`${item.name}-${i}`}
+              />
             ))}
           </m.div>
         </div>
@@ -49,7 +60,7 @@ function TestimonialCard({ item, index }: { item: Testimonial; index: number }) 
 
   return (
     <Reveal>
-      <blockquote className="w-[320px] shrink-0 rounded-xl-brand border border-line bg-white p-6 shadow-brand-sm md:w-[380px]">
+      <blockquote className="w-full shrink-0 rounded-xl-brand border border-line bg-white p-5 shadow-brand-sm sm:w-[380px] sm:p-6">
         <div aria-hidden className="mb-4 flex gap-1">
           {Array.from({ length: item.rating }).map((_, i) => (
             <Star className="h-4 w-4 fill-paint-amber text-paint-amber" key={i} />

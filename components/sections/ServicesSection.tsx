@@ -26,8 +26,8 @@ export function ServicesSection({ showViewAll = true }: { showViewAll?: boolean 
   const t = useTranslations("services");
 
   return (
-    <section className="bg-bg-soft py-24 lg:py-32" id="servicios">
-      <div className="mx-auto max-w-7xl px-5 lg:px-8">
+    <section className="bg-bg-soft py-16 sm:py-24 lg:py-32" id="servicios">
+      <div className="mx-auto max-w-7xl px-4 sm:px-5 lg:px-8">
         <SectionHeading
           eyebrow={t("eyebrow")}
           intro={t("intro")}

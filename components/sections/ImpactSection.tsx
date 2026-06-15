@@ -43,7 +43,7 @@ export function StatCounter({ value, label, numericPart, suffix = "" }: StatCoun
 
   return (
     <div className="text-center" ref={ref}>
-      <p className="font-display text-step-4 font-bold text-gradient-eco">{display}</p>
+      <p className="font-display text-step-3 font-bold text-gradient-eco sm:text-step-4">{display}</p>
       <p className="mt-2 text-step--1 font-medium text-ink-soft">{label}</p>
     </div>
   );
@@ -65,8 +65,8 @@ export function ImpactSection() {
   ];
 
   return (
-    <section className="py-24 lg:py-32" id="impacto">
-      <div className="mx-auto max-w-7xl px-5 lg:px-8">
+    <section className="py-16 sm:py-24 lg:py-32" id="impacto">
+      <div className="mx-auto max-w-7xl px-4 sm:px-5 lg:px-8">
         <div className="grid items-center gap-16 lg:grid-cols-2">
           <SectionHeading
             eyebrow={t("eyebrow")}
@@ -100,7 +100,7 @@ export function ImpactSection() {
           </Reveal>
         </div>
 
-        <div className="mt-16 grid grid-cols-2 gap-8 lg:grid-cols-4">
+        <div className="mt-12 grid grid-cols-2 gap-4 sm:mt-16 sm:gap-8 lg:grid-cols-4">
           {stats.map((stat, i) => (
             <Reveal delay={i * 0.1} key={stat.label}>
               <StatCounter

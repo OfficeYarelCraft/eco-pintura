@@ -20,8 +20,8 @@ export function FaqSection() {
   const items = t.raw("items") as FaqItem[];
 
   return (
-    <section className="bg-bg-soft py-24 lg:py-32" id="faq">
-      <div className="mx-auto max-w-3xl px-5 lg:px-8">
+    <section className="bg-bg-soft py-16 sm:py-24 lg:py-32" id="faq">
+      <div className="mx-auto max-w-3xl px-4 sm:px-5 lg:px-8">
         <SectionHeading
           align="center"
           eyebrow={t("eyebrow")}

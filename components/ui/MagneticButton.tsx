@@ -45,7 +45,7 @@ export function MagneticButton({
   };
 
   const sharedClass = cn(
-    "relative overflow-hidden",
+    "relative w-full overflow-hidden sm:w-auto",
     variant === "primary" && "shadow-glow-paint",
     className,
   );
@@ -69,7 +69,12 @@ export function MagneticButton({
         size="lg"
         variant={variant === "primary" ? "default" : "ghost"}
       >
-        <Link href={href} ref={ref as React.Ref<HTMLAnchorElement>} {...handlers}>
+        <Link
+          className="w-full justify-center sm:w-auto"
+          href={href}
+          ref={ref as React.Ref<HTMLAnchorElement>}
+          {...handlers}
+        >
           <m.span
             aria-hidden
             className="pointer-events-none absolute inset-0 bg-white/20"
