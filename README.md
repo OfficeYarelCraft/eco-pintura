@@ -1,90 +1,76 @@
-# Eco Pintura — Marketing Website
+# Eco Pintura — "Recién pintado"
 
-Premium marketing site for **Eco Pintura**, a professional eco-friendly painting company. Built with Next.js 15, React 19, Tailwind CSS, Motion, Lenis, and next-intl.
+Marketing site for **Eco Pintura**, painters in Barcelona — from your hallway to Camp Nou.
+Built from the Figma file **Eco Pintura — Website & Launch Storyboard**
+(`Uh2rj2cneA2sZxCzE0YQzv`): Direction, System, Mobile 390, Tablet 834, Desktop 1440, Motion, SEO & Copy.
 
 ## Quick start
 
 ```bash
 npm install
-npm run dev
+npm run dev        # http://localhost:3000  (es)  ·  /ca  ·  /en
+npm run build && npm run start
 ```
 
-Open [http://localhost:3000](http://localhost:3000) (Spanish default) or [http://localhost:3000/en](http://localhost:3000/en) (English).
+| Script                                  | What it does                                       |
+| --------------------------------------- | -------------------------------------------------- |
+| `npm run dev`                           | Dev server (Turbopack)                             |
+| `npm run build` / `start`               | Production build / serve                           |
+| `npm run lint` · `typecheck` · `format` | ESLint · `tsc --noEmit` · Prettier                 |
+| `node scripts/generate-icons.mjs`       | Regenerates the favicon set from the logo's leaf-O |
 
-### Scripts
+Environment (set in Vercel / `.env.local`):
 
-| Command | Description |
-|---------|-------------|
-| `npm run dev` | Start dev server (Turbopack) |
-| `npm run build` | Production build |
-| `npm run start` | Serve production build |
-| `npm run lint` | ESLint |
-| `npm run typecheck` | TypeScript check |
-| `npm run format` | Prettier |
-
-## i18n
-
-- **Spanish (default):** `/`, `/proyectos`, `/servicios`, `/contacto`
-- **English:** `/en`, `/en/proyectos`, etc.
-- Copy lives in `messages/es.json` and `messages/en.json`
-- Language switcher preserves the current path
-
-## Project structure
-
-```
-app/[locale]/     # Pages and layout
-components/       # UI, sections, motion, brand
-i18n/             # next-intl routing & navigation
-lib/              # motion tokens, hooks, utils
-messages/         # ES + EN copy
-public/           # logo, strokes, OG image
+```bash
+NEXT_PUBLIC_SITE_URL=https://www.your-domain.es   # canonicals, hreflang, sitemap, JSON-LD, OG
+RESEND_API_KEY=re_...                              # quote form delivery (without it requests are only logged)
+QUOTE_FROM_EMAIL="Eco Pintura <web@ecopintura.es>" # a sender on a domain verified in Resend
+QUOTE_TO_EMAIL=hola@ecopintura.es                  # inbox (default)
 ```
 
-## Adding real content
+## The idea
 
-### Images
+The whole site behaves like a freshly painted wall. Three motions, nothing else:
 
-Replace placeholder gallery blocks in `components/sections/GallerySection.tsx` with `next/image` pointing to files in `public/placeholders/` or your CDN. Before/after slider colors can be swapped for real photos in `BeforeAfterSlider`.
+- **Encintar** (tape goes on): tape snaps over the hero photo, lays itself across Camp Nou and the process timeline.
+- **Rodillo** (roller pass): hard-edged clip-path reveals; section colour changes are a roller pass with a ragged roller edge (`PaintedSection`), never a fade.
+- **Despegar** (tape comes off): the hero tape peels on the first scroll; the contact tapes peel to leave a clean edge.
 
-### Quote form email
+Signature pieces: the **Long Zoom** (pinned camera pull-back 1:1 → 1:5000), the **fan deck** of services
+(drag, swipe, click or arrow keys), the **Obrelier** co-branded site log, the draggable **before/after roller**.
 
-The API stub is at `app/api/quote/route.ts`. Connect your provider (Resend, SendGrid, etc.) at the marked integration point.
+No custom cursor, no count-ups, no blur fade-ups, no gradients in UI, no icon set, radius 0.
+`prefers-reduced-motion` gets a complete static version (Long Zoom un-pins into four stacked frames).
 
-### Logo
+## Structure
 
-SVG wordmark: `public/logo/eco-pintura.svg`. Ink/white variants: `components/brand/Logo.tsx`.
+```
+app/[locale]/          home, /servicios, /obras, /contacto, 404 (es · ca · en)
+app/api/quote          multipart quote endpoint (zod-validated, honeypot) → email via Resend (photos attached)
+components/layout      Nav, MobileMenu, MobileActionBar, Footer, LanguageSwitch
+components/sections    Hero, LongZoom, CampNou, FanDeck, ObrelierInsert, Projects, BeforeAfter, Process, Reviews, Faq, Contact, QuoteForm
+components/motion      Wipe (hard-edged reveal), PaintedSection (roller pass between colours)
+components/ui          Tape, Button (roller hover), TapeLink, Tags
+lib/                   motion tokens, site facts, content (photos + deck colours), quote schema
+messages/              es.json (default) · ca.json · en.json
+assets/photos          STAND-IN photos (see below)
+```
 
----
+Fonts (Google, self-hosted by `next/font`): **Big Shoulders** pinned to its Display optical size, **Big Shoulders Stencil**,
+**Schibsted Grotesk**; Syne / Figtree / IBM Plex Mono only inside the Obrelier insert (not preloaded).
 
-## Fill these in
+## Credits
 
-Replace every `{{PLACEHOLDER}}` below across the site, `messages/*.json`, `app/sitemap.ts`, `app/robots.ts`, and `components/seo/JsonLd.tsx`.
+Site by [Yarel Craft Digital](https://yarelcraft.co.uk) (credited quietly in the footer).
 
-| Placeholder | Where used |
-|-------------|------------|
-| `{{PHONE}}` | Footer, JSON-LD |
-| `{{EMAIL}}` | Footer, JSON-LD |
-| `{{ADDRESS}}` | Footer, JSON-LD |
-| `{{CITY}}` | Footer, testimonials, JSON-LD |
-| `{{SERVICE_AREA}}` | FAQ, JSON-LD |
-| `{{DOMAIN}}` | sitemap, robots, metadata, JSON-LD |
-| `{{COMPANY}}` | Testimonial sample (Laura M.) |
-| `{{SOCIAL_INSTAGRAM}}` | Footer, JSON-LD |
-| `{{SOCIAL_FACEBOOK}}` | Footer, JSON-LD |
-| `{{SOCIAL_LINKEDIN}}` | Footer, JSON-LD |
-| `{{STAT_*}}` | Hero trust row — currently inline copy (+500 proyectos · …) |
-| `{{PROJECT_IMG_*}}` | Gallery placeholder `aria-label`s |
-| `{{TEAM_MEMBER_*}}` / `{{TEAM_NAME_*}}` | About section team row |
-| `{{TESTIMONIAL_*}}` | Testimonials marked as sample content |
+## Before launch — must confirm with Eco Pintura
 
-## Deploy
-
-Vercel-ready. Set `{{DOMAIN}}` in metadata/sitemap before going live.
-
-## Stack
-
-- Next.js App Router · React 19 · TypeScript (strict)
-- Tailwind CSS 3.4 · CSS custom properties
-- Motion (LazyMotion) · Lenis smooth scroll
-- next-intl · react-hook-form · zod
-- shadcn-style Radix primitives (Sheet, Accordion)
+- [ ] **Camp Nou**: exact role and written OK from the main contractor / club to name the project and show photos. No crests or club marks are used.
+- [ ] **Photos**: every image in `assets/photos` is a free-licence Unsplash stand-in. Replace with own photography (shot list in Figma › SEO & Copy). The before/after "before" is the same photo desaturated with a gotelé texture — replace with a real pair.
+- [ ] **Contact facts** in `lib/site.ts` come from the shared office (IBRA Gestiones, Carrer de Pereda 86-88, Sant Adrià de Besòs): office +34 934 717 303. **Confirm +34 654 302 219 is on WhatsApp** (all WhatsApp buttons use it). Opening hours are not published — add them to `site.hours` once known.
+- [ ] **Promises**: call-back within 24 working hours, fixed quote in 48 h, 3–5 days per flat.
+- [ ] **Reviews** in `messages/*.json` are samples — real customers with written consent.
+- [ ] **NCS codes** of the six deck colours (ideally from their paint supplier).
+- [ ] **Obrelier**: official logo, real client-view screenshots (the phone is an illustrative mock), OK for the "Obra gestionada con Obrelier" badge.
+- [ ] **Catalan copy** reviewed by a native speaker. Legal pages (aviso legal, privacidad, cookies) to be written.
+- [ ] Resend: verify the sending domain, set the env vars above, and route hola@ecopintura.es.

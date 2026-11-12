@@ -1,33 +1,42 @@
 "use client";
 
 import Lenis from "lenis";
-import { useEffect } from "react";
-import { useReducedMotion } from "motion/react";
+import { createContext, useContext, useEffect, useState } from "react";
 
+const LenisContext = createContext<Lenis | null>(null);
+export const useLenis = () => useContext(LenisContext);
+
+/**
+ * Weighted smooth scroll on wheel/trackpad only. Touch keeps native scrolling,
+ * and reduced-motion users get the browser default.
+ */
 export function LenisProvider({ children }: { children: React.ReactNode }) {
-  const reduced = useReducedMotion();
+  const [lenis, setLenis] = useState<Lenis | null>(null);
 
   useEffect(() => {
-    if (reduced) return;
+    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)");
+    if (reduce.matches) return;
 
-    const lenis = new Lenis({
-      duration: 1.1,
-      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+    const navH =
+      parseInt(
+        getComputedStyle(document.documentElement).getPropertyValue("--nav-h"),
+      ) || 80;
+    const instance = new Lenis({
+      lerp: 0.11,
       smoothWheel: true,
+      autoRaf: true,
+      anchors: { offset: -navH + 1 },
     });
-
-    let rafId = 0;
-    function raf(time: number) {
-      lenis.raf(time);
-      rafId = requestAnimationFrame(raf);
-    }
-    rafId = requestAnimationFrame(raf);
-
+    setLenis(instance);
+    if (process.env.NODE_ENV !== "production")
+      (window as unknown as { __lenis: Lenis }).__lenis = instance;
     return () => {
-      cancelAnimationFrame(rafId);
-      lenis.destroy();
+      instance.destroy();
+      setLenis(null);
     };
-  }, [reduced]);
+  }, []);
 
-  return <>{children}</>;
+  return (
+    <LenisContext.Provider value={lenis}>{children}</LenisContext.Provider>
+  );
 }

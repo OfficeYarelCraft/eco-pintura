@@ -1,188 +1,188 @@
 "use client";
 
-import { m, useScroll, useTransform, useReducedMotion } from "motion/react";
-import { ChevronDown, Leaf, ShieldCheck, Sparkles } from "lucide-react";
+import {
+  m,
+  useReducedMotion,
+  useScroll,
+  useTransform,
+  type MotionValue,
+} from "motion/react";
+import Image from "next/image";
 import { useTranslations } from "next-intl";
-import { useRef } from "react";
-import { Pill } from "@/components/ui/Pill";
-import { MagneticButton } from "@/components/ui/MagneticButton";
-import { ease, fadeUp, fadeUpReduced, spring, stagger } from "@/lib/motion";
-import { MeshBackground, BrushStroke } from "./hero/MeshBackground";
-import { Particles } from "./hero/Particles";
+import { useRef, type CSSProperties } from "react";
+import { ButtonA } from "@/components/ui/Button";
+import { Tape } from "@/components/ui/Tape";
+import { TapeA } from "@/components/ui/TapeLink";
+import { ScaleTag, StatusTag } from "@/components/ui/Tags";
+import { photos } from "@/lib/content";
+import { easeFn } from "@/lib/motion";
+
+const d = (ms: number) => ({ "--d": `${ms}ms` }) as CSSProperties;
 
 export function Hero() {
   const t = useTranslations("hero");
-  const heroRef = useRef<HTMLElement>(null);
-  const reduced = useReducedMotion();
+  const status = useTranslations("status");
+  const meta = t.raw("meta") as string[];
+  const ref = useRef<HTMLElement>(null);
+  const reduce = useReducedMotion();
+
+  // Despegar: the first scroll peels the tape off the corner.
   const { scrollYProgress } = useScroll({
-    target: heroRef,
+    target: ref,
     offset: ["start start", "end start"],
   });
-
-  const contentY = useTransform(scrollYProgress, [0, 1], [0, -120]);
-  const contentOpacity = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
-  const contentScale = useTransform(scrollYProgress, [0, 1], [1, 0.96]);
-  const bgY = useTransform(scrollYProgress, [0, 1], [0, 60]);
-
-  const variants = reduced ? fadeUpReduced : fadeUp;
-  const containerVariants = stagger(0.08, 0.3);
+  const peelOpts = { ease: easeFn.despegar, clamp: true };
+  const tapeRotate = useTransform(
+    scrollYProgress,
+    [0, 0.26],
+    [0, 24],
+    peelOpts,
+  );
+  const tapeX = useTransform(scrollYProgress, [0, 0.26], [0, 160], peelOpts);
+  const tapeY = useTransform(scrollYProgress, [0, 0.26], [0, -150], peelOpts);
+  const tapeOpacity = useTransform(scrollYProgress, [0.17, 0.26], [1, 0]);
+  const photoY = useTransform(scrollYProgress, [0, 1], ["0%", "9%"]);
 
   return (
     <section
-      aria-labelledby="hero-heading"
-      className="relative min-h-[100svh] overflow-hidden"
+      ref={ref}
       id="inicio"
-      ref={heroRef}
+      aria-labelledby="hero-title"
+      className="relative overflow-hidden bg-paper"
     >
-      <m.div className="absolute inset-0 overflow-hidden" style={{ y: reduced ? 0 : bgY }}>
-        <MeshBackground />
-      </m.div>
-      <Particles />
-      <BrushStroke />
-
-      <m.div
-        animate="show"
-        className="relative z-10 mx-auto flex min-h-[100svh] max-w-7xl flex-col justify-center px-4 pb-20 pt-24 sm:px-5 sm:pb-24 sm:pt-28 lg:px-8"
-        initial="hidden"
-        style={{
-          y: reduced ? 0 : contentY,
-          opacity: reduced ? 1 : contentOpacity,
-          scale: reduced ? 1 : contentScale,
-        }}
-        variants={containerVariants}
-      >
-        <div className="grid items-center gap-8 lg:grid-cols-[1.2fr_0.8fr] lg:gap-12">
-          <div className="min-w-0">
-            <m.div variants={variants}>
-              <Pill className="mb-4 sm:mb-6" icon>
-                {t("eyebrow")}
-              </Pill>
-            </m.div>
-
-            <m.h1
-              className="font-display text-step-5 font-semibold leading-[1.08] tracking-tight text-ink [overflow-wrap:anywhere]"
-              id="hero-heading"
-              variants={variants}
-            >
-              {t("titleBefore")}{" "}
-              <span className="relative inline-block">
-                <span className="text-gradient-paint">{t("titleHighlight")}</span>
-              </span>{" "}
-              {t("titleAfter")}
-            </m.h1>
-
-            <m.p
-              className="mt-4 max-w-xl text-step-0 leading-relaxed text-ink-soft sm:mt-6 sm:text-step-1"
-              variants={variants}
-            >
-              {t("subtitle")}
-            </m.p>
-
-            <m.div
-              className="mt-8 flex w-full flex-col gap-3 sm:mt-10 sm:w-auto sm:flex-row sm:flex-wrap sm:gap-4"
-              variants={variants}
-            >
-              <MagneticButton href="#contacto">{t("ctaPrimary")}</MagneticButton>
-              <MagneticButton href="#proyectos" variant="ghost">
-                {t("ctaSecondary")}
-              </MagneticButton>
-            </m.div>
-
-            <m.p
-              className="mt-6 max-w-sm text-step--1 font-medium leading-relaxed text-ink-soft sm:mt-8"
-              variants={variants}
-            >
-              {t("trust")}
-            </m.p>
-
-            <m.div
-              className="mt-6 flex gap-2 overflow-x-auto pb-1 [-ms-overflow-style:none] [scrollbar-width:none] lg:hidden [&::-webkit-scrollbar]:hidden"
-              variants={variants}
-            >
-              <ProofPill compact icon={Leaf} label={t("proofZeroVoc")} />
-              <ProofPill compact icon={ShieldCheck} label={t("proofCertified")} />
-              <ProofPill compact icon={Sparkles} label={t("proofEco")} />
-            </m.div>
+      <div className="wrap relative lg:grid lg:min-h-[min(calc(100svh-var(--nav-h)),940px)] lg:grid-cols-12 lg:gap-x-6">
+        <div className="relative z-10 flex flex-col pb-9 pt-5 md:pb-14 md:pt-10 lg:col-span-7 lg:pb-[88px] lg:pt-14">
+          <div className="load-roll" style={d(0)}>
+            <StatusTag>{status("onSite")}</StatusTag>
           </div>
 
-          <m.div
-            className="hidden lg:block"
-            transition={spring.gentle}
-            variants={{
-              hidden: { opacity: 0, y: 40, rotate: -2 },
-              show: { opacity: 1, y: 0, rotate: 0, transition: spring.gentle },
-            }}
+          <h1 id="hero-title" className="mt-6 md:mt-9 lg:mt-12">
+            <span
+              className="load-roll block font-display text-h3 font-extrabold leading-none"
+              style={d(140)}
+            >
+              {t("kicker")}
+            </span>{" "}
+            <span className="mt-2 block font-display text-h1 font-black md:mt-3">
+              <span className="load-roll block pb-[0.04em]" style={d(260)}>
+                {t("line1")}
+              </span>{" "}
+              <span className="load-roll block pb-[0.06em]" style={d(400)}>
+                {t("line2")}
+              </span>
+            </span>
+          </h1>
+
+          <p
+            className="load-roll mt-6 max-w-[34rem] text-lead text-ink-soft md:mt-8"
+            style={d(560)}
           >
-            <div className="rounded-xl-brand border border-white/40 bg-white/50 p-6 shadow-brand-md backdrop-blur-xl">
-              <div className="flex flex-col gap-4">
-                <ProofPill icon={Leaf} label={t("proofZeroVoc")} />
-                <ProofPill icon={ShieldCheck} label={t("proofCertified")} />
-                <ProofPill icon={Sparkles} label={t("proofEco")} />
-              </div>
-            </div>
-          </m.div>
+            {t("sub")}
+          </p>
+
+          <div
+            className="load-roll mt-7 flex flex-wrap items-center gap-x-8 gap-y-5 md:mt-9"
+            style={d(640)}
+          >
+            <ButtonA href="#contacto">{t("cta")}</ButtonA>
+            <TapeA href="#obras">{t("secondary")}</TapeA>
+          </div>
+
+          <ul className="mt-auto hidden gap-10 pt-16 font-body text-caption text-ink-soft lg:flex">
+            {meta.map((item) => (
+              <li key={item}>{item}</li>
+            ))}
+          </ul>
         </div>
-      </m.div>
-
-      <m.div
-        animate={{ opacity: 1, y: [0, 8, 0] }}
-        className="absolute bottom-6 left-1/2 z-10 flex -translate-x-1/2 flex-col items-center gap-2 text-ink-soft sm:bottom-8"
-        initial={{ opacity: 0 }}
-        transition={{
-          opacity: { delay: 1.4, duration: 0.5 },
-          y: { duration: 2, repeat: Infinity, ease: ease.brand },
-        }}
-      >
-        <span className="text-step--1 font-medium">{t("scrollCue")}</span>
-        <ChevronDown aria-hidden className="h-5 w-5" />
-      </m.div>
-
-      <div className="absolute bottom-0 left-0 right-0 z-[5]">
-        <svg
-          aria-hidden
-          className="w-full text-bg-soft"
-          preserveAspectRatio="none"
-          viewBox="0 0 1440 80"
-        >
-          <path
-            d="M0,40 C360,80 720,0 1080,40 C1260,60 1380,50 1440,55 L1440,80 L0,80 Z"
-            fill="currentColor"
-          />
-        </svg>
       </div>
+
+      {/* Photo: full-bleed below the text on mobile/tablet, bleeding off the right edge on desktop */}
+      <div className="relative lg:absolute lg:bottom-0 lg:right-0 lg:top-0 lg:w-[41.25%]">
+        <div
+          className="load-roll relative aspect-[39/44] w-full overflow-hidden bg-plaster md:aspect-[834/560] lg:aspect-auto lg:h-[calc(100%-40px)]"
+          style={d(180)}
+        >
+          <m.div
+            className="absolute inset-[-6%_0_-6%_0]"
+            style={reduce ? undefined : { y: photoY }}
+          >
+            <Image
+              src={photos.heroRoller}
+              alt={t("photoAlt")}
+              fill
+              priority
+              placeholder="blur"
+              fetchPriority="high"
+              sizes="(min-width: 1024px) 42vw, 100vw"
+              className="object-cover object-[30%_50%]"
+            />
+          </m.div>
+          <div className="absolute bottom-5 left-5 flex items-center gap-3 md:bottom-8 md:left-8 lg:left-6">
+            <ScaleTag>1:1</ScaleTag>
+            <span className="bg-paper px-2.5 py-1.5 font-body text-caption text-ink">
+              {t("zoomHint")}
+            </span>
+          </div>
+        </div>
+        {/* Encintar (mobile/tablet): tape laid across the photo's top-left corner */}
+        <PeelTape
+          print={t("tape")}
+          className="left-[-36px] top-[44px] w-[300px] md:top-[60px] md:w-[440px] lg:hidden"
+          tapeClass="-rotate-[9deg]"
+          motionStyle={
+            reduce
+              ? undefined
+              : { rotate: tapeRotate, x: tapeX, y: tapeY, opacity: tapeOpacity }
+          }
+        />
+      </div>
+
+      {/* Encintar (desktop): tape bridging the headline and the photo */}
+      <PeelTape
+        print={t("tape")}
+        className="left-[calc(58.75%-150px)] top-[132px] hidden w-[470px] lg:block"
+        tapeClass="-rotate-[7deg]"
+        motionStyle={
+          reduce
+            ? undefined
+            : { rotate: tapeRotate, x: tapeX, y: tapeY, opacity: tapeOpacity }
+        }
+      />
     </section>
   );
 }
 
-function ProofPill({
-  icon: Icon,
-  label,
-  compact = false,
+type PeelStyle = {
+  rotate: MotionValue<number>;
+  x: MotionValue<number>;
+  y: MotionValue<number>;
+  opacity: MotionValue<number>;
+};
+
+function PeelTape({
+  print,
+  className,
+  tapeClass,
+  motionStyle,
 }: {
-  icon: React.ComponentType<{ className?: string }>;
-  label: string;
-  compact?: boolean;
+  print: string;
+  className: string;
+  tapeClass: string;
+  motionStyle?: PeelStyle;
 }) {
   return (
-    <div
-      className={`flex shrink-0 items-center gap-2 rounded-lg-brand bg-bg/60 sm:gap-3 ${
-        compact ? "px-3 py-2" : "px-4 py-3"
-      }`}
+    <m.div
+      aria-hidden
+      className={`pointer-events-none absolute z-20 ${className}`}
+      style={
+        motionStyle
+          ? { ...motionStyle, transformOrigin: "100% 50%" }
+          : undefined
+      }
     >
-      <span
-        className={`flex items-center justify-center rounded-full bg-grad-eco text-white ${
-          compact ? "h-8 w-8" : "h-10 w-10"
-        }`}
-      >
-        <Icon className={compact ? "h-4 w-4" : "h-5 w-5"} />
-      </span>
-      <span
-        className={`whitespace-nowrap font-display font-semibold text-ink ${
-          compact ? "text-step--1" : "text-step-1"
-        }`}
-      >
-        {label}
-      </span>
-    </div>
+      <div className="load-tape" style={d(860)}>
+        <Tape print={print} className={`h-9 md:h-10 ${tapeClass}`} />
+      </div>
+    </m.div>
   );
 }

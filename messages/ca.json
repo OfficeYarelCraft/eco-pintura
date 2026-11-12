@@ -1,0 +1,449 @@
+{
+  "meta": {
+    "title": "Pintors a Barcelona: pisos, façanes i obra | Eco Pintura",
+    "description": "Empresa de pintura a Barcelona per a pisos, comunitats, façanes i obra gran. Pressupost tancat en 48 h i part diari d'obra amb Obrelier.",
+    "ogAlt": "Eco Pintura — Pintors a Barcelona, del rebedor al Camp Nou."
+  },
+  "nav": {
+    "skip": "Salta al contingut",
+    "home": "Inici",
+    "services": "Serveis",
+    "work": "Obres",
+    "campNou": "Camp Nou",
+    "process": "Com treballem",
+    "obrelier": "Obrelier",
+    "contact": "Contacte",
+    "quote": "Demana pressupost",
+    "menu": "Menú",
+    "close": "Tanca",
+    "language": "Idioma",
+    "primary": "Navegació principal"
+  },
+  "status": {
+    "onSite": "Ara en obra: Spotify Camp Nou"
+  },
+  "hero": {
+    "kicker": "Pintors a Barcelona,",
+    "line1": "del rebedor",
+    "line2": "al Camp Nou.",
+    "sub": "Pisos, comunitats, façanes, comerços i obra gran. El mateix equip i la mateixa cura, a qualsevol escala.",
+    "cta": "Demana pressupost",
+    "secondary": "Veure obres",
+    "meta": [
+      "Barcelona i àrea metropolitana",
+      "Pressupost tancat en 48 h",
+      "Obra registrada amb Obrelier"
+    ],
+    "tape": "ACABAT DE PINTAR",
+    "zoomHint": "Continua baixant: allunyem la càmera.",
+    "photoAlt": "Corró aplicant pintura al costat d'un cantell acabat d'encintar"
+  },
+  "zoom": {
+    "title": "La mateixa mà, a qualsevol escala.",
+    "intro": "Cada imatge és dins de la següent. En baixar, la càmera s'allunya: d'un cantell a un estadi.",
+    "stops": [
+      {
+        "scale": "1:1",
+        "title": "Un cantell.",
+        "body": "Comencem pel que ningú no mira: cantells, sòcols i marcs. Una línia neta és la nostra firma.",
+        "alt": "Franges verda i vermella pintades amb cinta: cantells perfectament nets"
+      },
+      {
+        "scale": "1:50",
+        "title": "Un pis.",
+        "body": "De 40 a 400 m². Mobles coberts, endolls protegits i la casa habitable cada nit.",
+        "alt": "Menjador d'un pis de l'Eixample amb motllures i sostres alts"
+      },
+      {
+        "scale": "1:500",
+        "title": "Un edifici.",
+        "body": "Façanes, patis de llums i escales de comunitat, amb bastida, llicències i veïns avisats.",
+        "alt": "Façana amb balcons de ferro a Barcelona"
+      },
+      {
+        "scale": "1:5000",
+        "title": "Un estadi.",
+        "body": "Ara mateix, donant suport als treballs de pintura de la remodelació de l'Spotify Camp Nou.",
+        "alt": "Vista nocturna de l'interior d'un estadi de futbol"
+      }
+    ],
+    "progress": "Progrés de l'allunyament"
+  },
+  "campNou": {
+    "stencil": "CAMP NOU",
+    "title": "Estem pintant al Camp Nou.",
+    "body": "Els nostres equips treballen dins la remodelació de l'estadi, coordinats amb la constructora: torns, accessos, prevenció de riscos i hores registrades al minut amb Obrelier. És la mateixa disciplina que portem a la teva escala.",
+    "facts": [
+      {
+        "k": "On",
+        "v": "Spotify Camp Nou, les Corts, Barcelona"
+      },
+      {
+        "k": "Què fem",
+        "v": "Suport en els treballs de pintura de la remodelació"
+      },
+      {
+        "k": "Control d'hores",
+        "v": "Fitxatge verificat a l'obra amb Obrelier"
+      }
+    ],
+    "photo1Alt": "Equip treballant a la grada d'un estadi en obres",
+    "photo2Alt": "Estructura de la coberta d'un estadi en remodelació",
+    "caption": "Torn de matí a la grada.",
+    "trademark": "Spotify Camp Nou és una marca registrada dels seus titulars. Mostrem la nostra feina a l'obra; no som patrocinadors del club."
+  },
+  "services": {
+    "title": "Què pintem.",
+    "intro": "Sis feines, sis colors de la nostra carta. Tria'n un o arrossega el ventall.",
+    "drag": "Arrossega el ventall",
+    "listLabel": "Serveis",
+    "more": "Veure el servei",
+    "items": [
+      {
+        "id": "pisos",
+        "colour": "Blanco Roto",
+        "code": "NCS S 0502-Y",
+        "title": "Pisos i cases",
+        "body": "Parets, sostres i portes. Traiem el gotelé, reparem esquerdes i hi donem dues mans d'acabat."
+      },
+      {
+        "id": "comunidades",
+        "colour": "Verde Escalera",
+        "code": "NCS S 4020-G30Y",
+        "title": "Comunitats",
+        "body": "Escales, vestíbuls i sòcols sense tallar el pas. Pressupost clar per a la junta."
+      },
+      {
+        "id": "fachadas",
+        "colour": "Ocre Eixample",
+        "code": "NCS S 2050-Y20R",
+        "title": "Façanes",
+        "body": "Rehabilitació i pintura de façanes, balcons i patis de llums, amb bastida o treballs verticals."
+      },
+      {
+        "id": "comercios",
+        "colour": "Verde Botiga",
+        "code": "NCS S 6030-G10Y",
+        "title": "Comerços i oficines",
+        "body": "Pintem de nit o el cap de setmana perquè no hagis de tancar ni un dia."
+      },
+      {
+        "id": "obra-grande",
+        "colour": "Naranja Obra",
+        "code": "NCS S 1080-Y70R",
+        "title": "Obra gran",
+        "body": "Suport a constructores en obra nova, rehabilitació i grans equipaments."
+      },
+      {
+        "id": "especiales",
+        "colour": "Antracita",
+        "code": "NCS S 7502-B",
+        "title": "Acabats especials",
+        "body": "Lacat de portes, esmalt de baranes i reixes, tractaments antihumitat."
+      }
+    ]
+  },
+  "obrelier": {
+    "lockup": "Obra gestionada amb",
+    "title": "Saps qui hi ha a la teva obra. Sempre.",
+    "body": "Cada pintor fitxa en arribar, verificat a l'obra. En tancar la jornada t'arriba el part: què s'ha fet, qui i quantes hores. Les hores que pagues són les que han passat.",
+    "why": "L'utilitzem a totes les obres, del pis de 40 m² al Camp Nou. Per a nosaltres és control; per a tu, tranquil·litat.",
+    "link": "Coneix Obrelier a obrelier.com",
+    "proofs": [
+      {
+        "t": "Fitxatge verificat a l'obra",
+        "d": "Només compta si el pintor és a la teva adreça."
+      },
+      {
+        "t": "Part de tancament cada dia",
+        "d": "El que s'ha fet avui i el que toca demà."
+      },
+      {
+        "t": "Hores a punt per a la factura",
+        "d": "Sense fulls d'hores a mà ni sorpreses al final."
+      }
+    ],
+    "phone": {
+      "site": "C/ Ponzano 14, 3r 1a",
+      "status": "En obra, 3 pintors des de les 07:58",
+      "today": "Part d'avui",
+      "entries": [
+        {
+          "t": "07:58",
+          "x": "Fitxatge verificat a l'obra: Marc, Iván i Lucía"
+        },
+        {
+          "t": "09:40",
+          "x": "Protecció acabada al menjador i al passadís"
+        },
+        {
+          "t": "12:15",
+          "x": "Material demanat: 2 × 15 L Blanco Roto"
+        },
+        {
+          "t": "16:30",
+          "x": "Segona mà al menjador"
+        },
+        {
+          "t": "17:42",
+          "x": "Part de tancament enviat. Demà, habitacions."
+        }
+      ],
+      "hoursLabel": "Hores avui",
+      "hours": "26 h 30 min",
+      "view": "Veure part"
+    },
+    "disclaimer": "Pantalla il·lustrativa. Obrelier és un producte de tercers."
+  },
+  "work": {
+    "title": "Obres recents.",
+    "filtersLabel": "Filtra les obres",
+    "filters": {
+      "all": "Totes",
+      "pisos": "Pisos",
+      "comunidades": "Comunitats",
+      "fachadas": "Façanes",
+      "comercios": "Comerços",
+      "obra-grande": "Obra gran"
+    },
+    "items": [
+      {
+        "id": "camp-nou",
+        "cat": "obra-grande",
+        "title": "Spotify Camp Nou, les Corts",
+        "duration": "En curs",
+        "alt": "Interior de l'Spotify Camp Nou vist des de la grada"
+      },
+      {
+        "id": "sant-antoni",
+        "cat": "fachadas",
+        "title": "Façana a Sant Antoni",
+        "duration": "9 dies",
+        "alt": "Façana ocre amb balcons al sol de la tarda"
+      },
+      {
+        "id": "gracia",
+        "cat": "comunidades",
+        "title": "Escala de comunitat, Gràcia",
+        "duration": "6 dies",
+        "alt": "Escala de cargol d'una comunitat vista des de dalt"
+      },
+      {
+        "id": "eixample",
+        "cat": "pisos",
+        "title": "Pis a l'Eixample Dret, 110 m²",
+        "duration": "5 dies",
+        "alt": "Menjador amb motllures i terra de fusta a l'Eixample"
+      },
+      {
+        "id": "poble-sec",
+        "cat": "comercios",
+        "title": "Botiga al Poble-sec",
+        "duration": "2 nits",
+        "alt": "Façana d'una botiga pintada de verd amb plantes"
+      },
+      {
+        "id": "sant-gervasi",
+        "cat": "comercios",
+        "title": "Bar a Sant Gervasi",
+        "duration": "4 nits",
+        "alt": "Interior d'un bar amb barra de rajola verda"
+      },
+      {
+        "id": "eixample-rosa",
+        "cat": "fachadas",
+        "title": "Façana a l'Eixample",
+        "duration": "12 dies",
+        "alt": "Façana rosa amb balcons i plantes"
+      }
+    ],
+    "beforeAfter": {
+      "title": "Abans i després",
+      "body": "Arrossega el corró. Menjador d'un pis a Sant Antoni: traiem el gotelé, allisem i dues mans de Blanco Roto. Cinc dies, amb la família vivint a casa.",
+      "before": "Abans: gotelé i taques",
+      "after": "Després: llis, Blanco Roto",
+      "handle": "Compara l'abans i el després"
+    },
+    "all": "Veure totes les obres",
+    "empty": "Aviat penjarem obres d'aquest tipus."
+  },
+  "process": {
+    "title": "Com treballem.",
+    "intro": "Sense sorpreses: saps què passa cada dia, i per què.",
+    "steps": [
+      {
+        "day": "DIA 0",
+        "title": "Visita i amidament",
+        "body": "Venim, amidem i mirem l'estat de parets i sostres. Sense cost."
+      },
+      {
+        "day": "48 H",
+        "title": "Pressupost tancat",
+        "body": "Per partides, amb materials i marques. El que signes és el que pagues."
+      },
+      {
+        "day": "DIA 1",
+        "title": "Protecció",
+        "body": "Terres, mobles i endolls coberts. Cinta a cada cantell."
+      },
+      {
+        "day": "DIES 2–4",
+        "title": "Pintura",
+        "body": "Reparació, imprimació i dues mans. Part diari a Obrelier."
+      },
+      {
+        "day": "ÚLTIM DIA",
+        "title": "Repàs i neteja",
+        "body": "Ho revisem amb tu amb llum rasant. Si alguna cosa no està bé, es repassa abans de marxar."
+      }
+    ]
+  },
+  "reviews": {
+    "title": "El que es comenta a l'escala.",
+    "items": [
+      {
+        "quote": "Van treure el gotelé de tot el pis i no vam trobar ni una mica de pols als armaris.",
+        "who": "Núria, Sant Antoni",
+        "job": "Pis de 85 m²"
+      },
+      {
+        "quote": "La junta va aprovar el pressupost en una sola reunió: tot per partides, sense sorpreses.",
+        "who": "Jordi, administrador de finques",
+        "job": "Comunitat a Gràcia"
+      },
+      {
+        "quote": "Van pintar la botiga en dues nits. El dilluns vam obrir com si res.",
+        "who": "Laia, Poble-sec",
+        "job": "Comerç"
+      }
+    ]
+  },
+  "faq": {
+    "title": "Preguntes de sempre.",
+    "more": "Tens un altre dubte? Escriu-nos per WhatsApp i et responem el mateix dia.",
+    "whatsapp": "Escriu per WhatsApp",
+    "items": [
+      {
+        "q": "Quant costa pintar un pis a Barcelona?",
+        "a": "Depèn dels metres, de l'estat de les parets i de si cal treure el gotelé. Després de la visita et donem un preu tancat per escrit en 48 hores, desglossat per estances."
+      },
+      {
+        "q": "He de buidar la casa?",
+        "a": "No. Movem i cobrim els mobles nosaltres. Només et demanem que guardis el que sigui fràgil i de valor."
+      },
+      {
+        "q": "Quant trigueu en un pis?",
+        "a": "Un pis mitjà, de 3 a 5 dies laborables. El calendari exacte va al pressupost i el segueixes cada dia al part d'Obrelier."
+      },
+      {
+        "q": "Treballeu per a comunitats de veïns?",
+        "a": "Sí. Preparem el pressupost per a la junta, avisem els veïns amb cartells i sempre deixem el pas lliure."
+      },
+      {
+        "q": "Què és Obrelier i per què l'utilitzeu?",
+        "a": "És l'aplicació amb què els nostres equips fitxen a cada obra. Així sabem, i saps, qui ha treballat, quan i què s'ha fet, sense trucades ni papers."
+      },
+      {
+        "q": "A quines zones treballeu?",
+        "a": "Barcelona i la seva àrea metropolitana: l'Hospitalet, Badalona, Sant Cugat, Cornellà, Esplugues i el Prat, entre d'altres."
+      }
+    ]
+  },
+  "contact": {
+    "title": "Explica'ns què cal pintar.",
+    "body": "Et truquem en menys de 24 hores laborables per quedar una visita. Sense compromís.",
+    "fields": {
+      "name": "Nom",
+      "phone": "Telèfon",
+      "type": "Què cal pintar",
+      "area": "Barri o municipi",
+      "size": "Metres aproximats",
+      "message": "Missatge",
+      "photos": "Afegeix fotos (opcional)"
+    },
+    "placeholders": {
+      "name": "El teu nom",
+      "phone": "+34",
+      "area": "Gràcia, Barcelona",
+      "size": "80 m²",
+      "message": "Menjador i passadís, treure el gotelé i pintar en blanc trencat."
+    },
+    "types": {
+      "piso": "Pis",
+      "comunidad": "Comunitat",
+      "fachada": "Façana",
+      "comercio": "Comerç",
+      "obra": "Obra gran"
+    },
+    "photosSelected": "{count, plural, one {# foto afegida} other {# fotos afegides}}",
+    "submit": "Envia i demana visita",
+    "sending": "Enviant…",
+    "privacy": "Fem servir les teves dades només per respondre't.",
+    "privacyLink": "Política de privacitat",
+    "prefer": "Prefereixes parlar?",
+    "success": {
+      "stamp": "REBUT.",
+      "title": "Gràcies. Ja és a la nostra taula.",
+      "body": "Et truquem abans de 24 hores laborables per quedar la visita.",
+      "again": "Envia una altra sol·licitud"
+    },
+    "errors": {
+      "name": "Digues-nos el teu nom",
+      "phone": "Necessitem un telèfon per trucar-te",
+      "type": "Tria què cal pintar",
+      "server": "No s'ha pogut enviar. Torna-ho a provar o escriu-nos per WhatsApp."
+    },
+    "call": "Oficina"
+  },
+  "footer": {
+    "signoff": "ACABAT DE PINTAR.",
+    "contact": "Contacte",
+    "areas": "On treballem",
+    "areasCity": "Barcelona: Eixample, Gràcia, Sant Antoni, les Corts, Sants, Poblenou, Sarrià.",
+    "areasMetro": "Àrea metropolitana: l'Hospitalet, Badalona, Sant Cugat, Cornellà, Esplugues, el Prat.",
+    "services": "Serveis",
+    "serviceLinks": [
+      "Pintar un pis a Barcelona",
+      "Pintura de comunitats",
+      "Pintura de façanes",
+      "Treure el gotelé",
+      "Locals i oficines",
+      "Obra gran i constructores"
+    ],
+    "obrelier": "Obra gestionada amb",
+    "rights": "© 2026 Eco Pintura",
+    "legal": "Avís legal",
+    "privacy": "Privacitat",
+    "cookies": "Galetes",
+    "office": "Oficina",
+    "directions": "Com arribar-hi",
+    "credit": "Web de"
+  },
+  "actionBar": {
+    "label": "Contacte ràpid",
+    "whatsapp": "WhatsApp",
+    "quote": "Demana pressupost"
+  },
+  "pages": {
+    "services": {
+      "title": "Serveis de pintura a Barcelona | Eco Pintura",
+      "description": "Pisos, comunitats, façanes, comerços, obra gran i acabats especials. Pressupost tancat en 48 h i part diari amb Obrelier.",
+      "h1": "Serveis de pintura a Barcelona."
+    },
+    "work": {
+      "title": "Obres de pintura a Barcelona | Eco Pintura",
+      "description": "Pisos, façanes, comunitats, comerços i l'Spotify Camp Nou: obres recents d'Eco Pintura a Barcelona.",
+      "h1": "Obres de pintura a Barcelona."
+    },
+    "contact": {
+      "title": "Demana pressupost de pintura a Barcelona | Eco Pintura",
+      "description": "Explica'ns què cal pintar i et truquem en menys de 24 hores laborables per quedar una visita sense compromís.",
+      "h1": "Demana pressupost."
+    }
+  },
+  "notFound": {
+    "title": "Aquesta paret encara està per pintar.",
+    "body": "La pàgina que busques no existeix o s'ha mogut.",
+    "back": "Torna a l'inici"
+  }
+}

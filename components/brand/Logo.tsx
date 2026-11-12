@@ -1,103 +1,87 @@
-import Image from "next/image";
+import { useId } from "react";
 import { cn } from "@/lib/utils";
+import {
+  ECO_PATH,
+  LEAF,
+  LOGO_VIEWBOX,
+  PINTURA_PATH,
+  VEIN_PATHS,
+} from "./logo-paths";
 
-type LogoVariant = "default" | "ink" | "white";
+type Variant = "colour" | "paper" | "ink";
 
-interface LogoProps {
-  variant?: LogoVariant;
+type LogoProps = {
+  variant?: Variant;
   className?: string;
-  animated?: boolean;
-}
+  /** Colour of the leaf veins on flat variants (should match the background). */
+  veinColor?: string;
+  title?: string;
+};
 
-export function Logo({ variant = "default", className, animated = false }: LogoProps) {
-  if (variant === "default") {
-    return (
-      <Image
-        alt="Eco Pintura"
-        className={cn("h-auto w-auto", className)}
-        height={48}
-        priority
-        src="/logo/eco-pintura.svg"
-        width={120}
-      />
-    );
-  }
-
-  return (
-    <InlineLogo animated={animated} className={className} variant={variant} />
-  );
-}
-
-function InlineLogo({
-  variant,
+/**
+ * The supplied Eco Pintura logo, drawn inline.
+ * Gradients belong to the mark only — they are never used elsewhere in the UI.
+ */
+export function Logo({
+  variant = "colour",
   className,
-  animated,
-}: {
-  variant: "ink" | "white";
-  className?: string;
-  animated?: boolean;
-}) {
-  const ecoFill = variant === "white" ? "#FFFFFF" : "url(#gEcoInk)";
-  const pinFill = variant === "white" ? "#FFFFFF" : "url(#gPinInk)";
-  const iconFill = variant === "white" ? "rgba(255,255,255,0.2)" : "url(#gIconInk)";
+  veinColor,
+  title = "Eco Pintura",
+}: LogoProps) {
+  const uid = useId().replace(/:/g, "");
+  const flat =
+    variant === "paper"
+      ? "var(--paper)"
+      : variant === "ink"
+        ? "var(--ink)"
+        : null;
+  const veins =
+    veinColor ??
+    (variant === "colour"
+      ? "#FFFFFF"
+      : variant === "paper"
+        ? "var(--night)"
+        : "var(--signal)");
 
   return (
     <svg
-      aria-label="Eco Pintura"
-      className={cn("h-10 w-auto", className)}
+      viewBox={LOGO_VIEWBOX}
+      className={cn("block h-auto", className)}
       role="img"
-      viewBox="0 0 360 120"
+      aria-label={title}
       xmlns="http://www.w3.org/2000/svg"
     >
-      <defs>
-        <linearGradient id="gEcoInk" x1="0" y1="0" x2="1" y2="0.15">
-          <stop offset="0" stopColor="#1F7A3D" />
-          <stop offset="1" stopColor="#15231B" />
-        </linearGradient>
-        <linearGradient id="gPinInk" x1="0" y1="0" x2="1" y2="0.2">
-          <stop offset="0" stopColor="#46564C" />
-          <stop offset="1" stopColor="#15231B" />
-        </linearGradient>
-        <linearGradient id="gIconInk" x1="0" y1="0" x2="1" y2="1">
-          <stop offset="0" stopColor="#5CBE49" />
-          <stop offset="1" stopColor="#37A94B" />
-        </linearGradient>
-      </defs>
-      <text
-        fill={ecoFill}
-        fontFamily="var(--font-fredoka), Fredoka, sans-serif"
-        fontSize="42"
-        fontWeight="700"
-        x="0"
-        y="42"
-      >
-        ECO
-      </text>
-      <circle cx="155" cy="28" fill={iconFill} r="22" />
-      <g
-        fill="none"
-        stroke={variant === "white" ? "#FFFFFF" : "#FFFFFF"}
-        strokeLinecap="round"
-        strokeWidth="2"
-      >
-        <path
-          d="M160 14 L148 42"
-          style={animated ? { strokeDasharray: 30, strokeDashoffset: 0 } : undefined}
-        />
-        <path d="M158 20 L172 18" />
-        <path d="M155 28 L178 32" />
-        <path d="M152 36 L170 44" />
+      {variant === "colour" && (
+        <defs>
+          <linearGradient id={`e${uid}`} x1="0" y1="0" x2="1" y2="0.15">
+            <stop offset="0" stopColor="#9DD53A" />
+            <stop offset="0.55" stopColor="#5CBE49" />
+            <stop offset="1" stopColor="#37A94B" />
+          </linearGradient>
+          <linearGradient id={`l${uid}`} x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stopColor="#62C24A" />
+            <stop offset="1" stopColor="#2E9C46" />
+          </linearGradient>
+          <linearGradient id={`p${uid}`} x1="0" y1="0" x2="1" y2="0.2">
+            <stop offset="0" stopColor="#FBA63C" />
+            <stop offset="0.5" stopColor="#F47A29" />
+            <stop offset="1" stopColor="#EE5524" />
+          </linearGradient>
+        </defs>
+      )}
+      <path d={ECO_PATH} fill={flat ?? `url(#e${uid})`} />
+      <circle
+        cx={LEAF.cx}
+        cy={LEAF.cy}
+        r={LEAF.r}
+        fill={flat ?? `url(#l${uid})`}
+      />
+      <g fill="none" stroke={veins} strokeWidth="5.3" strokeLinecap="round">
+        {VEIN_PATHS.map((d) => (
+          <path key={d} d={d} />
+        ))}
       </g>
-      <text
-        fill={pinFill}
-        fontFamily="var(--font-fredoka), Fredoka, sans-serif"
-        fontSize="42"
-        fontWeight="700"
-        x="0"
-        y="95"
-      >
-        PINTURA
-      </text>
+      <path d={PINTURA_PATH} fill={flat ?? `url(#p${uid})`} />
     </svg>
   );
 }

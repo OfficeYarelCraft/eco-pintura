@@ -1,240 +1,449 @@
 {
-  "metadata": {
-    "title": "Eco Pintura — Pintura ecológica profesional",
-    "description": "Pinturas sin COV, libres de tóxicos y de bajo impacto ambiental. Acabados impecables para tu hogar y negocio. Color con conciencia.",
-    "tagline": "Color con conciencia."
+  "meta": {
+    "title": "Pintores en Barcelona: pisos, fachadas y obra | Eco Pintura",
+    "description": "Empresa de pintura en Barcelona para pisos, comunidades, fachadas y obra grande. Presupuesto cerrado en 48 h y parte diario de obra con Obrelier.",
+    "ogAlt": "Eco Pintura — Pintores en Barcelona, del recibidor al Camp Nou."
   },
   "nav": {
+    "skip": "Saltar al contenido",
     "home": "Inicio",
     "services": "Servicios",
-    "process": "Proceso",
-    "projects": "Proyectos",
-    "about": "Nosotros",
+    "work": "Obras",
+    "campNou": "Camp Nou",
+    "process": "Cómo trabajamos",
+    "obrelier": "Obrelier",
     "contact": "Contacto",
-    "quote": "Presupuesto"
+    "quote": "Pide presupuesto",
+    "menu": "Menú",
+    "close": "Cerrar",
+    "language": "Idioma",
+    "primary": "Navegación principal"
+  },
+  "status": {
+    "onSite": "En obra ahora: Spotify Camp Nou"
   },
   "hero": {
-    "eyebrow": "Pintura ecológica profesional",
-    "titleBefore": "Dale",
-    "titleHighlight": "vida",
-    "titleAfter": "a tus espacios, sin dañar el planeta.",
-    "subtitle": "Pinturas sin COV, libres de tóxicos y de bajo impacto ambiental. Acabados impecables para tu hogar y tu negocio.",
-    "ctaPrimary": "Solicita presupuesto gratis",
-    "ctaSecondary": "Ver proyectos",
-    "trust": "+500 proyectos · Pinturas certificadas · 0 COV",
-    "scrollCue": "Descubre más",
-    "proofZeroVoc": "0 COV",
-    "proofCertified": "Certificadas",
-    "proofEco": "Eco-friendly"
+    "kicker": "Pintores en Barcelona,",
+    "line1": "del recibidor",
+    "line2": "al Camp Nou.",
+    "sub": "Pisos, comunidades, fachadas, comercios y obra grande. El mismo equipo y el mismo cuidado, a cualquier escala.",
+    "cta": "Pide presupuesto",
+    "secondary": "Ver obras",
+    "meta": [
+      "Barcelona y área metropolitana",
+      "Presupuesto cerrado en 48 h",
+      "Obra registrada con Obrelier"
+    ],
+    "tape": "RECIÉN PINTADO",
+    "zoomHint": "Sigue bajando: alejamos la cámara.",
+    "photoAlt": "Rodillo aplicando pintura junto a un canto recién encintado"
   },
-  "marquee": {
-    "items": ["Zero VOC", "Eco-Cert", "Low-Impact", "Pintura sostenible", "Sin tóxicos", "Bajo impacto"]
+  "zoom": {
+    "title": "La misma mano, a cualquier escala.",
+    "intro": "Cada imagen está dentro de la siguiente. Al bajar, la cámara se aleja: de un canto a un estadio.",
+    "stops": [
+      {
+        "scale": "1:1",
+        "title": "Un canto.",
+        "body": "Empezamos por lo que nadie mira: cantos, rodapiés y marcos. Una línea limpia es nuestra firma.",
+        "alt": "Franjas verde y roja pintadas con cinta: cantos perfectamente limpios"
+      },
+      {
+        "scale": "1:50",
+        "title": "Un piso.",
+        "body": "De 40 a 400 m². Muebles cubiertos, enchufes protegidos y la casa habitable cada noche.",
+        "alt": "Salón de un piso del Eixample con molduras y techos altos"
+      },
+      {
+        "scale": "1:500",
+        "title": "Un edificio.",
+        "body": "Fachadas, patios de luces y escaleras de comunidad, con andamio, licencias y vecinos avisados.",
+        "alt": "Fachada con balcones de hierro en Barcelona"
+      },
+      {
+        "scale": "1:5000",
+        "title": "Un estadio.",
+        "body": "Ahora mismo, apoyando los trabajos de pintura en la remodelación del Spotify Camp Nou.",
+        "alt": "Vista nocturna del interior de un estadio de fútbol"
+      }
+    ],
+    "progress": "Progreso del alejamiento"
+  },
+  "campNou": {
+    "stencil": "CAMP NOU",
+    "title": "Estamos pintando en el Camp Nou.",
+    "body": "Nuestros equipos trabajan dentro de la remodelación del estadio, coordinados con la constructora: turnos, accesos, prevención de riesgos y horas registradas al minuto con Obrelier. Es la misma disciplina que llevamos a tu escalera.",
+    "facts": [
+      {
+        "k": "Dónde",
+        "v": "Spotify Camp Nou, Les Corts, Barcelona"
+      },
+      {
+        "k": "Qué hacemos",
+        "v": "Apoyo en los trabajos de pintura de la remodelación"
+      },
+      {
+        "k": "Control de horas",
+        "v": "Fichaje verificado en obra con Obrelier"
+      }
+    ],
+    "photo1Alt": "Equipo trabajando en la grada de un estadio en obras",
+    "photo2Alt": "Estructura de la cubierta de un estadio en remodelación",
+    "caption": "Turno de mañana en la grada.",
+    "trademark": "Spotify Camp Nou es una marca registrada de sus titulares. Mostramos nuestro trabajo en la obra; no somos patrocinadores del club."
   },
   "services": {
-    "eyebrow": "Servicios",
-    "title": "Pintura profesional, consciente y sin compromisos",
-    "intro": "Cada proyecto recibe la misma atención artesanal y el mismo compromiso ecológico.",
-    "interior": {
-      "title": "Interiores",
-      "description": "Paredes, techos y detalles con acabados sanos que respiran. Sin olores tóxicos, listos para habitar."
-    },
-    "exterior": {
-      "title": "Exteriores",
-      "description": "Fachadas resistentes al clima con pinturas de bajo impacto y máxima durabilidad."
-    },
-    "commercial": {
-      "title": "Comercial",
-      "description": "Oficinas, comercios y hostelería. Trabajamos sin interrumpir tu negocio."
-    },
-    "consulting": {
-      "title": "Asesoría eco",
-      "description": "Te ayudamos a elegir colores y materiales sostenibles a tu medida."
-    },
-    "viewAll": "Ver todos los servicios"
+    "title": "Qué pintamos.",
+    "intro": "Seis trabajos, seis colores de nuestra carta. Elige uno o arrastra el abanico.",
+    "drag": "Arrastra el abanico",
+    "listLabel": "Servicios",
+    "more": "Ver el servicio",
+    "items": [
+      {
+        "id": "pisos",
+        "colour": "Blanco Roto",
+        "code": "NCS S 0502-Y",
+        "title": "Pisos y casas",
+        "body": "Paredes, techos y puertas. Quitamos el gotelé, reparamos grietas y damos dos manos de acabado."
+      },
+      {
+        "id": "comunidades",
+        "colour": "Verde Escalera",
+        "code": "NCS S 4020-G30Y",
+        "title": "Comunidades",
+        "body": "Escaleras, vestíbulos y zócalos sin cortar el paso. Presupuesto claro para la junta."
+      },
+      {
+        "id": "fachadas",
+        "colour": "Ocre Eixample",
+        "code": "NCS S 2050-Y20R",
+        "title": "Fachadas",
+        "body": "Rehabilitación y pintura de fachadas, balcones y patios de luces, con andamio o trabajos verticales."
+      },
+      {
+        "id": "comercios",
+        "colour": "Verde Botiga",
+        "code": "NCS S 6030-G10Y",
+        "title": "Comercios y oficinas",
+        "body": "Pintamos de noche o en fin de semana para que no cierres ni un día."
+      },
+      {
+        "id": "obra-grande",
+        "colour": "Naranja Obra",
+        "code": "NCS S 1080-Y70R",
+        "title": "Obra grande",
+        "body": "Apoyo a constructoras en obra nueva, rehabilitación y grandes equipamientos."
+      },
+      {
+        "id": "especiales",
+        "colour": "Antracita",
+        "code": "NCS S 7502-B",
+        "title": "Acabados especiales",
+        "body": "Lacado de puertas, esmalte de barandillas y rejas, tratamientos antihumedad."
+      }
+    ]
   },
-  "impact": {
-    "eyebrow": "Impacto",
-    "title": "Pintura que respeta tu salud y el planeta",
-    "intro": "Usamos exclusivamente pinturas al agua sin compuestos orgánicos volátiles. Mejor aire interior, cero residuos peligrosos y la misma calidad profesional de siempre.",
-    "stats": {
-      "projects": { "value": "+500", "label": "proyectos completados" },
-      "voc": { "value": "0 COV", "label": "compuestos tóxicos" },
-      "certified": { "value": "100%", "label": "pinturas certificadas" },
-      "carbon": { "value": "−40%", "label": "huella de carbono" }
+  "obrelier": {
+    "lockup": "Obra gestionada con",
+    "title": "Sabes quién está en tu obra. Siempre.",
+    "body": "Cada pintor ficha al llegar, verificado en la obra. Al cerrar la jornada te llega el parte: qué se ha hecho, quién y cuántas horas. Las horas que pagas son las que han pasado.",
+    "why": "Lo usamos en cada obra, del piso de 40 m² al Camp Nou. Para nosotros es control; para ti, tranquilidad.",
+    "link": "Conoce Obrelier en obrelier.com",
+    "proofs": [
+      {
+        "t": "Fichaje verificado en obra",
+        "d": "Solo cuenta si el pintor está en tu dirección."
+      },
+      {
+        "t": "Parte de cierre cada día",
+        "d": "Lo que se ha hecho hoy y lo que toca mañana."
+      },
+      {
+        "t": "Horas listas para la factura",
+        "d": "Sin hojas de horas a mano ni sorpresas al final."
+      }
+    ],
+    "phone": {
+      "site": "C/ Ponzano 14, 3º 1ª",
+      "status": "En obra, 3 pintores desde las 07:58",
+      "today": "Parte de hoy",
+      "entries": [
+        {
+          "t": "07:58",
+          "x": "Fichaje verificado en obra: Marc, Iván y Lucía"
+        },
+        {
+          "t": "09:40",
+          "x": "Protección terminada en salón y pasillo"
+        },
+        {
+          "t": "12:15",
+          "x": "Material pedido: 2 × 15 L Blanco Roto"
+        },
+        {
+          "t": "16:30",
+          "x": "Segunda mano en el salón"
+        },
+        {
+          "t": "17:42",
+          "x": "Parte de cierre enviado. Mañana, dormitorios."
+        }
+      ],
+      "hoursLabel": "Horas hoy",
+      "hours": "26 h 30 min",
+      "view": "Ver parte"
     },
-    "comparison": {
-      "conventional": "Convencional",
-      "eco": "Eco Pintura",
-      "vocLabel": "COV emitidos",
-      "odorLabel": "Olor al secar",
-      "dryTimeLabel": "Reocupación"
-    }
+    "disclaimer": "Pantalla ilustrativa. Obrelier es un producto de terceros."
+  },
+  "work": {
+    "title": "Obras recientes.",
+    "filtersLabel": "Filtrar obras",
+    "filters": {
+      "all": "Todas",
+      "pisos": "Pisos",
+      "comunidades": "Comunidades",
+      "fachadas": "Fachadas",
+      "comercios": "Comercios",
+      "obra-grande": "Obra grande"
+    },
+    "items": [
+      {
+        "id": "camp-nou",
+        "cat": "obra-grande",
+        "title": "Spotify Camp Nou, Les Corts",
+        "duration": "En curso",
+        "alt": "Interior del Spotify Camp Nou visto desde la grada"
+      },
+      {
+        "id": "sant-antoni",
+        "cat": "fachadas",
+        "title": "Fachada en Sant Antoni",
+        "duration": "9 días",
+        "alt": "Fachada ocre con balcones al sol de la tarde"
+      },
+      {
+        "id": "gracia",
+        "cat": "comunidades",
+        "title": "Escalera de comunidad, Gràcia",
+        "duration": "6 días",
+        "alt": "Escalera de caracol de una comunidad vista desde arriba"
+      },
+      {
+        "id": "eixample",
+        "cat": "pisos",
+        "title": "Piso en Eixample Dret, 110 m²",
+        "duration": "5 días",
+        "alt": "Salón con molduras y suelo de madera en el Eixample"
+      },
+      {
+        "id": "poble-sec",
+        "cat": "comercios",
+        "title": "Botiga en Poble-sec",
+        "duration": "2 noches",
+        "alt": "Fachada de una tienda pintada en verde con plantas"
+      },
+      {
+        "id": "sant-gervasi",
+        "cat": "comercios",
+        "title": "Bar en Sant Gervasi",
+        "duration": "4 noches",
+        "alt": "Interior de un bar con barra de azulejo verde"
+      },
+      {
+        "id": "eixample-rosa",
+        "cat": "fachadas",
+        "title": "Fachada en l'Eixample",
+        "duration": "12 días",
+        "alt": "Fachada rosa con balcones y plantas"
+      }
+    ],
+    "beforeAfter": {
+      "title": "Antes y después",
+      "body": "Arrastra el rodillo. Salón de un piso en Sant Antoni: quitamos el gotelé, alisamos y dos manos de Blanco Roto. Cinco días, con la familia viviendo en casa.",
+      "before": "Antes: gotelé y manchas",
+      "after": "Después: liso, Blanco Roto",
+      "handle": "Comparar antes y después"
+    },
+    "all": "Ver todas las obras",
+    "empty": "Pronto subiremos obras de este tipo."
   },
   "process": {
-    "eyebrow": "Proceso",
-    "title": "Así trabajamos contigo",
-    "intro": "Un proceso claro, sin sorpresas, de la primera consulta al último detalle.",
-    "steps": {
-      "1": {
-        "title": "Consulta y presupuesto",
-        "description": "Escuchamos tu proyecto y te damos un presupuesto claro y gratuito."
-      },
-      "2": {
-        "title": "Color y materiales",
-        "description": "Elegimos juntos tonos y acabados ecológicos."
-      },
-      "3": {
-        "title": "Preparación y protección",
-        "description": "Protegemos tus muebles y suelos; dejamos cada superficie lista."
-      },
-      "4": {
-        "title": "Aplicación y acabado",
-        "description": "Aplicamos con técnica profesional para un resultado impecable."
-      },
-      "5": {
-        "title": "Revisión y limpieza",
-        "description": "Repasamos contigo el resultado y lo dejamos todo impecable."
-      }
-    }
-  },
-  "gallery": {
-    "eyebrow": "Proyectos",
-    "title": "Espacios que hablan por nosotros",
-    "intro": "Cada pared cuenta una historia de color, calidad y respeto ambiental.",
-    "filters": {
-      "all": "Todos",
-      "interior": "Interiores",
-      "exterior": "Exteriores",
-      "commercial": "Comercial"
-    },
-    "beforeAfter": {
-      "label": "Antes / Después",
-      "before": "Antes",
-      "after": "Después",
-      "dragHint": "Arrastra para comparar"
-    },
-    "viewAll": "Ver galería completa",
-    "cta": "¿Te gusta lo que ves? Solicita presupuesto"
-  },
-  "testimonials": {
-    "eyebrow": "Testimonios",
-    "title": "Lo que dicen nuestros clientes",
-    "sampleNote": "Contenido de muestra",
-    "items": [
+    "title": "Cómo trabajamos.",
+    "intro": "Sin sorpresas: sabes qué pasa cada día, y por qué.",
+    "steps": [
       {
-        "quote": "El acabado es impecable y por fin un proyecto sin olores químicos en casa.",
-        "name": "María G.",
-        "role": "Propietaria, {city}",
-        "rating": 5
+        "day": "DÍA 0",
+        "title": "Visita y medición",
+        "body": "Venimos, medimos y miramos el estado de paredes y techos. Sin coste."
       },
       {
-        "quote": "Profesionales, puntuales y muy cuidadosos. El salón quedó listo el mismo día.",
-        "name": "Carlos R.",
-        "role": "Arquitecto, {city}",
-        "rating": 5
+        "day": "48 H",
+        "title": "Presupuesto cerrado",
+        "body": "Por partidas, con materiales y marcas. Lo que firmas es lo que pagas."
       },
       {
-        "quote": "Pintamos toda la oficina sin cerrar un solo día. Increíble equipo.",
-        "name": "Laura M.",
-        "role": "Directora, {company}",
-        "rating": 5
+        "day": "DÍA 1",
+        "title": "Protección",
+        "body": "Suelos, muebles y enchufes cubiertos. Cinta en cada canto."
+      },
+      {
+        "day": "DÍA 2–4",
+        "title": "Pintura",
+        "body": "Reparación, imprimación y dos manos. Parte diario en Obrelier."
+      },
+      {
+        "day": "ÚLTIMO DÍA",
+        "title": "Repaso y limpieza",
+        "body": "Revisamos contigo con luz rasante. Si algo no está, se repasa antes de irnos."
       }
     ]
   },
-  "about": {
-    "eyebrow": "Nosotros",
-    "title": "Pintar bonito y pintar responsable van de la mano",
-    "intro": "Somos un equipo de profesionales que cree que pintar bonito y pintar responsable no están reñidos.",
-    "values": {
-      "health": { "title": "Salud", "description": "Aire limpio en cada espacio que transformamos." },
-      "sustainability": { "title": "Sostenibilidad", "description": "Materiales de bajo impacto, sin comprometer calidad." },
-      "quality": { "title": "Calidad", "description": "Acabados impecables con técnica artesanal." },
-      "closeness": { "title": "Cercanía", "description": "Trato directo, presupuestos claros y sin sorpresas." }
-    }
+  "reviews": {
+    "title": "Lo que se comenta en la escalera.",
+    "items": [
+      {
+        "quote": "Quitaron el gotelé de todo el piso y no encontramos ni una mota de polvo en los armarios.",
+        "who": "Núria, Sant Antoni",
+        "job": "Piso de 85 m²"
+      },
+      {
+        "quote": "La junta aprobó el presupuesto en una sola reunión: todo por partidas, sin sorpresas.",
+        "who": "Jordi, administrador de fincas",
+        "job": "Comunidad en Gràcia"
+      },
+      {
+        "quote": "Pintaron la tienda en dos noches. El lunes abrimos como si nada.",
+        "who": "Laia, Poble-sec",
+        "job": "Comercio"
+      }
+    ]
   },
   "faq": {
-    "eyebrow": "FAQ",
-    "title": "Preguntas frecuentes",
+    "title": "Preguntas de siempre.",
+    "more": "¿Otra duda? Escríbenos por WhatsApp y te contestamos en el día.",
+    "whatsapp": "Escribir por WhatsApp",
     "items": [
       {
-        "question": "¿Qué es una pintura sin COV?",
-        "answer": "Las pinturas sin COV (compuestos orgánicos volátiles) no emiten gases tóxicos al secar. Son pinturas al agua, de bajo olor y mucho más saludables para tu hogar y el medio ambiente."
+        "q": "¿Cuánto cuesta pintar un piso en Barcelona?",
+        "a": "Depende de los metros, del estado de las paredes y de si hay que quitar gotelé. Tras la visita te damos un precio cerrado por escrito en 48 horas, desglosado por estancias."
       },
       {
-        "question": "¿Es más cara la pintura ecológica?",
-        "answer": "El coste por litro puede ser ligeramente superior, pero la calidad de cobertura y durabilidad son comparables. Además, evitas costes de ventilación prolongada y reocupación más rápida."
+        "q": "¿Tengo que vaciar la casa?",
+        "a": "No. Movemos y cubrimos los muebles nosotros. Solo te pedimos que guardes lo frágil y lo de valor."
       },
       {
-        "question": "¿Cuánto tarda en secar y puedo habitar enseguida?",
-        "answer": "Las pinturas ecológicas secan al tacto en 1–2 horas y permiten reocupar la estancia el mismo día o al día siguiente, según ventilación y humedad."
+        "q": "¿Cuánto tardáis en un piso?",
+        "a": "Un piso medio, de 3 a 5 días laborables. El calendario exacto va en el presupuesto y lo sigues cada día en el parte de Obrelier."
       },
       {
-        "question": "¿En qué zonas trabajáis?",
-        "answer": "Prestamos servicio en {serviceArea} y alrededores. Contáctanos para confirmar disponibilidad en tu zona."
+        "q": "¿Trabajáis para comunidades de vecinos?",
+        "a": "Sí. Preparamos el presupuesto para la junta, avisamos a los vecinos con carteles y dejamos siempre el paso libre."
       },
       {
-        "question": "¿Ofrecéis garantía?",
-        "answer": "Sí. Todos nuestros trabajos incluyen garantía de acabado. Si detectas cualquier defecto dentro del periodo acordado, lo corregimos sin coste adicional."
+        "q": "¿Qué es Obrelier y por qué lo usáis?",
+        "a": "Es la aplicación con la que nuestros equipos fichan en cada obra. Así sabemos, y sabes, quién ha trabajado, cuándo y qué se ha hecho, sin llamadas ni papeles."
+      },
+      {
+        "q": "¿En qué zonas trabajáis?",
+        "a": "Barcelona y su área metropolitana: L'Hospitalet, Badalona, Sant Cugat, Cornellà, Esplugues y El Prat, entre otras."
       }
     ]
   },
-  "cta": {
-    "eyebrow": "Presupuesto",
-    "title": "¿List@ para transformar tu espacio?",
-    "subtitle": "Cuéntanos tu proyecto y te respondemos en menos de 24 horas. Sin compromiso."
-  },
-  "form": {
-    "name": "Nombre",
-    "email": "Email",
-    "phone": "Teléfono",
-    "projectType": "Tipo de proyecto",
-    "message": "Mensaje",
-    "photoNote": "¿Tienes fotos? Escríbenos y te indicamos cómo enviarlas.",
-    "projectTypes": {
-      "interior": "Interior",
-      "exterior": "Exterior",
-      "commercial": "Comercial",
-      "other": "Otro"
+  "contact": {
+    "title": "Cuéntanos qué hay que pintar.",
+    "body": "Te llamamos en menos de 24 horas laborables para quedar una visita. Sin compromiso.",
+    "fields": {
+      "name": "Nombre",
+      "phone": "Teléfono",
+      "type": "Qué hay que pintar",
+      "area": "Barrio o municipio",
+      "size": "Metros aproximados",
+      "message": "Mensaje",
+      "photos": "Añadir fotos (opcional)"
     },
-    "submit": "Enviar solicitud",
-    "submitting": "Enviando…",
-    "success": "¡Gracias! Te contactaremos en menos de 24 h.",
+    "placeholders": {
+      "name": "Tu nombre",
+      "phone": "+34",
+      "area": "Gràcia, Barcelona",
+      "size": "80 m²",
+      "message": "Salón y pasillo, quitar gotelé y pintar en blanco roto."
+    },
+    "types": {
+      "piso": "Piso",
+      "comunidad": "Comunidad",
+      "fachada": "Fachada",
+      "comercio": "Comercio",
+      "obra": "Obra grande"
+    },
+    "photosSelected": "{count, plural, one {# foto añadida} other {# fotos añadidas}}",
+    "submit": "Enviar y pedir visita",
+    "sending": "Enviando…",
+    "privacy": "Usamos tus datos solo para responderte.",
+    "privacyLink": "Política de privacidad",
+    "prefer": "¿Prefieres hablar?",
+    "success": {
+      "stamp": "RECIBIDO.",
+      "title": "Gracias. Ya está en nuestra mesa.",
+      "body": "Te llamamos antes de 24 horas laborables para quedar la visita.",
+      "again": "Enviar otra solicitud"
+    },
     "errors": {
-      "nameRequired": "El nombre es obligatorio",
-      "emailInvalid": "Introduce un email válido",
-      "phoneRequired": "El teléfono es obligatorio",
-      "projectTypeRequired": "Selecciona un tipo de proyecto",
-      "messageMin": "Cuéntanos un poco más (mínimo 10 caracteres)"
-    }
+      "name": "Dinos tu nombre",
+      "phone": "Necesitamos un teléfono para llamarte",
+      "type": "Elige qué hay que pintar",
+      "server": "No se ha podido enviar. Inténtalo de nuevo o escríbenos por WhatsApp."
+    },
+    "call": "Oficina"
   },
   "footer": {
-    "tagline": "Color con conciencia.",
-    "links": "Enlaces",
-    "servicesTitle": "Servicios",
-    "contactTitle": "Contacto",
-    "newsletter": "Newsletter",
-    "newsletterPlaceholder": "Tu email",
-    "newsletterButton": "Suscribirse",
-    "location": "Pintura ecológica · {city}",
-    "madeWith": "Hecho con 🌿",
-    "rights": "Todos los derechos reservados."
+    "signoff": "RECIÉN PINTADO.",
+    "contact": "Contacto",
+    "areas": "Dónde trabajamos",
+    "areasCity": "Barcelona: Eixample, Gràcia, Sant Antoni, Les Corts, Sants, Poblenou, Sarrià.",
+    "areasMetro": "Área metropolitana: L'Hospitalet, Badalona, Sant Cugat, Cornellà, Esplugues, El Prat.",
+    "services": "Servicios",
+    "serviceLinks": [
+      "Pintar piso en Barcelona",
+      "Pintura de comunidades",
+      "Pintura de fachadas",
+      "Quitar gotelé",
+      "Locales y oficinas",
+      "Obra grande y constructoras"
+    ],
+    "obrelier": "Obra gestionada con",
+    "rights": "© 2026 Eco Pintura",
+    "legal": "Aviso legal",
+    "privacy": "Privacidad",
+    "cookies": "Cookies",
+    "office": "Oficina",
+    "directions": "Cómo llegar",
+    "credit": "Web por"
+  },
+  "actionBar": {
+    "label": "Contacto rápido",
+    "whatsapp": "WhatsApp",
+    "quote": "Pide presupuesto"
   },
   "pages": {
-    "projects": {
-      "title": "Nuestros proyectos",
-      "description": "Galería de proyectos de pintura ecológica — interiores, exteriores y comercial."
-    },
     "services": {
-      "title": "Servicios de pintura ecológica",
-      "description": "Interiores, exteriores, comercial y asesoría eco. Pintura profesional sin COV."
+      "title": "Servicios de pintura en Barcelona | Eco Pintura",
+      "description": "Pisos, comunidades, fachadas, comercios, obra grande y acabados especiales. Presupuesto cerrado en 48 h y parte diario con Obrelier.",
+      "h1": "Servicios de pintura en Barcelona."
+    },
+    "work": {
+      "title": "Obras de pintura en Barcelona | Eco Pintura",
+      "description": "Pisos, fachadas, comunidades, comercios y el Spotify Camp Nou: obras recientes de Eco Pintura en Barcelona.",
+      "h1": "Obras de pintura en Barcelona."
     },
     "contact": {
-      "title": "Contacto y presupuesto",
-      "description": "Solicita tu presupuesto gratuito. Respondemos en menos de 24 horas."
+      "title": "Pide presupuesto de pintura en Barcelona | Eco Pintura",
+      "description": "Cuéntanos qué hay que pintar y te llamamos en menos de 24 horas laborables para quedar una visita sin compromiso.",
+      "h1": "Pide presupuesto."
     }
   },
-  "common": {
-    "learnMore": "Saber más",
-    "backHome": "Volver al inicio"
+  "notFound": {
+    "title": "Esta pared aún está sin pintar.",
+    "body": "La página que buscas no existe o se ha movido.",
+    "back": "Volver al inicio"
   }
 }

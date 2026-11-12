@@ -1,101 +1,140 @@
-import type { Metadata } from "next";
-import { Fredoka, Plus_Jakarta_Sans } from "next/font/google";
+import type { Metadata, Viewport } from "next";
+import {
+  Big_Shoulders,
+  Big_Shoulders_Stencil,
+  Figtree,
+  IBM_Plex_Mono,
+  Schibsted_Grotesk,
+  Syne,
+} from "next/font/google";
 import { notFound } from "next/navigation";
-import { NextIntlClientProvider } from "next-intl";
-import { getMessages, getTranslations, setRequestLocale } from "next-intl/server";
-import { CustomCursor } from "@/components/motion/CustomCursor";
-import { GrainOverlay } from "@/components/motion/GrainOverlay";
-import { ScrollProgress } from "@/components/motion/ScrollProgress";
+import { NextIntlClientProvider, hasLocale } from "next-intl";
+import {
+  getMessages,
+  getTranslations,
+  setRequestLocale,
+} from "next-intl/server";
+import { Footer } from "@/components/layout/Footer";
+import { MobileActionBar } from "@/components/layout/MobileActionBar";
+import { Nav } from "@/components/layout/Nav";
 import { LenisProvider } from "@/components/providers/LenisProvider";
 import { MotionProvider } from "@/components/providers/MotionProvider";
-import { Footer } from "@/components/sections/Footer";
-import { Navbar } from "@/components/sections/Navbar";
-import { JsonLd } from "@/components/seo/JsonLd";
+import { BusinessJsonLd } from "@/components/seo/JsonLd";
 import { routing } from "@/i18n/routing";
+import {
+  alternates,
+  localePath,
+  ogLocale,
+  site,
+  type SiteLocale,
+} from "@/lib/site";
 import "../globals.css";
 
-const fredoka = Fredoka({
+/* Big Shoulders: Chicago city-signage type. opsz is pinned to 72 (the Display cut) in CSS. */
+const display = Big_Shoulders({
   subsets: ["latin"],
-  variable: "--font-fredoka",
-  weight: ["500", "600", "700"],
+  axes: ["opsz"],
+  variable: "--font-display",
+  display: "block",
+  adjustFontFallback: false,
+});
+/* Stencil cut: how painters letter a job site. */
+const stencil = Big_Shoulders_Stencil({
+  subsets: ["latin"],
+  axes: ["opsz"],
+  variable: "--font-stencil",
+  display: "block",
+  adjustFontFallback: false,
+});
+/* Newspaper workhorse for reading. */
+const body = Schibsted_Grotesk({
+  subsets: ["latin"],
+  variable: "--font-body",
   display: "swap",
 });
-
-const plusJakarta = Plus_Jakarta_Sans({
+/* Obrelier's own brand faces, used only inside the partner insert. */
+const syne = Syne({
   subsets: ["latin"],
-  variable: "--font-plus-jakarta",
-  weight: ["400", "500", "600"],
+  weight: ["700"],
+  variable: "--font-syne",
   display: "swap",
+  preload: false,
+});
+const figtree = Figtree({
+  subsets: ["latin"],
+  variable: "--font-figtree",
+  display: "swap",
+  preload: false,
+});
+const plexMono = IBM_Plex_Mono({
+  subsets: ["latin"],
+  weight: ["500"],
+  variable: "--font-plex-mono",
+  display: "swap",
+  preload: false,
 });
 
-type Props = {
-  children: React.ReactNode;
-  params: Promise<{ locale: string }>;
-};
+type Props = { children: React.ReactNode; params: Promise<{ locale: string }> };
 
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
 }
 
+export const viewport: Viewport = {
+  themeColor: "#eeeee8",
+  width: "device-width",
+  initialScale: 1,
+};
+
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
-  const t = await getTranslations({ locale, namespace: "metadata" });
-
+  const t = await getTranslations({ locale, namespace: "meta" });
   return {
-    metadataBase: new URL("https://{{DOMAIN}}"),
+    metadataBase: new URL(site.url),
     title: t("title"),
     description: t("description"),
-    alternates: {
-      canonical: locale === "es" ? "/" : "/en",
-      languages: {
-        es: "/",
-        en: "/en",
-        "x-default": "/",
-      },
-    },
+    applicationName: site.name,
+    alternates: { canonical: localePath(locale), languages: alternates() },
     openGraph: {
       title: t("title"),
       description: t("description"),
-      locale: locale === "es" ? "es_ES" : "en_US",
+      url: localePath(locale),
+      siteName: site.name,
+      locale: ogLocale[locale as SiteLocale],
       type: "website",
-      images: [{ url: "/og-image.svg", width: 1200, height: 630 }],
+      images: [{ url: "/og.jpg", width: 1200, height: 630, alt: t("ogAlt") }],
     },
     twitter: {
       card: "summary_large_image",
       title: t("title"),
       description: t("description"),
-      images: ["/og-image.svg"],
+      images: ["/og.jpg"],
     },
+    formatDetection: { telephone: false },
   };
 }
 
 export default async function LocaleLayout({ children, params }: Props) {
   const { locale } = await params;
-
-  if (!routing.locales.includes(locale as "es" | "en")) {
-    notFound();
-  }
-
+  if (!hasLocale(routing.locales, locale)) notFound();
   setRequestLocale(locale);
   const messages = await getMessages();
 
   return (
     <html
-      className={`${fredoka.variable} ${plusJakarta.variable}`}
       lang={locale}
+      className={`${display.variable} ${stencil.variable} ${body.variable} ${syne.variable} ${figtree.variable} ${plexMono.variable}`}
       suppressHydrationWarning
     >
-      <body className="min-h-screen overflow-x-hidden">
+      <body className="min-h-screen overflow-x-clip">
         <NextIntlClientProvider messages={messages}>
           <MotionProvider>
             <LenisProvider>
-              <ScrollProgress />
-              <GrainOverlay />
-              <CustomCursor />
-              <JsonLd locale={locale} />
-              <Navbar />
-              <main>{children}</main>
+              <BusinessJsonLd locale={locale} />
+              <Nav />
+              <main id="contenido">{children}</main>
               <Footer />
+              <MobileActionBar />
             </LenisProvider>
           </MotionProvider>
         </NextIntlClientProvider>

@@ -1,30 +1,29 @@
 import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
-import { ServicesSection } from "@/components/sections/ServicesSection";
-import { ProcessSection } from "@/components/sections/ProcessSection";
-import { CtaSection } from "@/components/sections/CtaSection";
-import { routing } from "@/i18n/routing";
+import { Contact } from "@/components/sections/Contact";
+import { FanDeck } from "@/components/sections/FanDeck";
+import { Faq } from "@/components/sections/Faq";
+import { PageHeader } from "@/components/sections/PageHeader";
+import { Process } from "@/components/sections/Process";
+import { FaqJsonLd } from "@/components/seo/JsonLd";
+import { alternates, localePath } from "@/lib/site";
 
 type Props = { params: Promise<{ locale: string }> };
-
-export function generateStaticParams() {
-  return routing.locales.map((locale) => ({ locale }));
-}
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "pages.services" });
-  const prefix = locale === "es" ? "" : "/en";
   return {
     title: t("title"),
     description: t("description"),
     alternates: {
-      canonical: `${prefix}/servicios`,
-      languages: {
-        es: "/servicios",
-        en: "/en/servicios",
-        "x-default": "/servicios",
-      },
+      canonical: localePath(locale, "/servicios"),
+      languages: alternates("/servicios"),
+    },
+    openGraph: {
+      title: t("title"),
+      description: t("description"),
+      url: localePath(locale, "/servicios"),
     },
   };
 }
@@ -32,13 +31,24 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function ServicesPage({ params }: Props) {
   const { locale } = await params;
   setRequestLocale(locale);
+  const t = await getTranslations({ locale, namespace: "pages.services" });
+  const nav = await getTranslations({ locale, namespace: "nav" });
+  const hero = await getTranslations({ locale, namespace: "hero" });
+  const faq = await getTranslations({ locale, namespace: "faq" });
 
   return (
     <>
-      <div className="pt-28" />
-      <ServicesSection showViewAll={false} />
-      <ProcessSection />
-      <CtaSection />
+      <FaqJsonLd items={faq.raw("items") as { q: string; a: string }[]} />
+      <PageHeader
+        title={t("h1")}
+        home={nav("home")}
+        current={nav("services")}
+        tape={hero("tape")}
+      />
+      <FanDeck initial="pisos" />
+      <Process />
+      <Faq />
+      <Contact />
     </>
   );
 }

@@ -1,206 +1,307 @@
 "use client";
 
 import { zodResolver } from "@hookform/resolvers/zod";
-import { m } from "motion/react";
-import { useTranslations } from "next-intl";
-import { useState } from "react";
+import { AnimatePresence, m, useReducedMotion } from "motion/react";
+import { useLocale, useTranslations } from "next-intl";
+import { useId, useState, type ReactNode } from "react";
 import { useForm } from "react-hook-form";
-import { z } from "zod";
-import { Button } from "@/components/ui/button";
+import { Button } from "@/components/ui/Button";
+import { Tape } from "@/components/ui/Tape";
+import { ease } from "@/lib/motion";
+import {
+  PROJECT_TYPES,
+  quoteSchema,
+  type QuoteInput,
+} from "@/lib/quote-schema";
 import { cn } from "@/lib/utils";
 
-const projectTypes = ["interior", "exterior", "commercial", "other"] as const;
-
-type FormValues = {
-  name: string;
-  email: string;
-  phone: string;
-  projectType: (typeof projectTypes)[number];
-  message: string;
-};
+type Status = "idle" | "sending" | "success" | "error";
 
 export function QuoteForm() {
-  const t = useTranslations("form");
-  const [success, setSuccess] = useState(false);
-  const [error, setError] = useState<string | null>(null);
-
-  const schema = z.object({
-    name: z.string().min(2, t("errors.nameRequired")),
-    email: z.string().email(t("errors.emailInvalid")),
-    phone: z.string().min(6, t("errors.phoneRequired")),
-    projectType: z.enum(projectTypes, {
-      errorMap: () => ({ message: t("errors.projectTypeRequired") }),
-    }),
-    message: z.string().min(10, t("errors.messageMin")),
-  });
-
+  const t = useTranslations("contact");
+  const hero = useTranslations("hero");
+  const locale = useLocale();
+  const reduce = useReducedMotion();
+  const uid = useId();
+  const [status, setStatus] = useState<Status>("idle");
+  const [files, setFiles] = useState<File[]>([]);
   const {
     register,
     handleSubmit,
-    formState: { errors, isSubmitting, isValid },
-  } = useForm<FormValues>({
-    resolver: zodResolver(schema),
-    mode: "onChange",
-    defaultValues: {
-      name: "",
-      email: "",
-      phone: "",
-      projectType: "interior",
-      message: "",
-    },
+    reset,
+    formState: { errors },
+  } = useForm<QuoteInput>({
+    resolver: zodResolver(quoteSchema),
+    defaultValues: { type: "piso" },
   });
 
-  const onSubmit = async (data: FormValues) => {
-    setError(null);
+  const onSubmit = handleSubmit(async (data) => {
+    setStatus("sending");
+    const fd = new FormData();
+    Object.entries(data).forEach(([k, v]) => fd.append(k, String(v ?? "")));
+    fd.append("locale", locale);
+    files.slice(0, 6).forEach((f) => fd.append("photos", f));
     try {
-      const res = await fetch("/api/quote", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data),
-      });
-      if (!res.ok) throw new Error("Failed");
-      setSuccess(true);
+      const res = await fetch("/api/quote", { method: "POST", body: fd });
+      if (!res.ok) throw new Error(String(res.status));
+      setStatus("success");
     } catch {
-      setError("Error");
+      setStatus("error");
     }
+  });
+
+  const err = (k: keyof QuoteInput) => {
+    const msg = errors[k]?.message;
+    return msg ? t(`errors.${msg}` as "errors.name") : undefined;
   };
 
-  if (success) {
-    return (
-      <div
-        aria-live="polite"
-        className="flex flex-col items-center gap-4 rounded-xl-brand bg-white/90 p-10 text-center shadow-brand-md"
-        role="status"
-      >
-        <m.svg
-          animate={{ pathLength: 1 }}
-          className="h-16 w-16 text-eco-green"
-          fill="none"
-          initial={{ pathLength: 0 }}
-          transition={{ duration: 0.6 }}
-          viewBox="0 0 52 52"
-        >
-          <m.circle
-            cx="26"
-            cy="26"
-            r="24"
-            stroke="currentColor"
-            strokeWidth="2"
-          />
-          <m.path
-            d="M14 27 L22 35 L38 17"
-            stroke="currentColor"
-            strokeLinecap="round"
-            strokeWidth="3"
-          />
-        </m.svg>
-        <p className="font-display text-step-2 font-semibold text-ink">
-          {t("success")}
-        </p>
-      </div>
-    );
-  }
-
   return (
-    <form
-      aria-label="Quote request"
-      className="rounded-xl-brand bg-white/90 p-6 shadow-brand-md backdrop-blur-sm md:p-8"
-      noValidate
-      onSubmit={handleSubmit(onSubmit)}
-    >
-      <div className="grid gap-5 sm:grid-cols-2">
-        <Field error={errors.name?.message} id="name" label={t("name")}>
-          <input
-            {...register("name")}
-            autoComplete="name"
-            className={inputClass}
-            id="name"
-          />
-        </Field>
-        <Field error={errors.email?.message} id="email" label={t("email")}>
-          <input
-            {...register("email")}
-            autoComplete="email"
-            className={inputClass}
-            id="email"
-            type="email"
-          />
-        </Field>
-        <Field error={errors.phone?.message} id="phone" label={t("phone")}>
-          <input
-            {...register("phone")}
-            autoComplete="tel"
-            className={inputClass}
-            id="phone"
-            type="tel"
-          />
-        </Field>
-        <Field error={errors.projectType?.message} id="projectType" label={t("projectType")}>
-          <select {...register("projectType")} className={inputClass} id="projectType">
-            {projectTypes.map((type) => (
-              <option key={type} value={type}>
-                {t(`projectTypes.${type}`)}
-              </option>
-            ))}
-          </select>
-        </Field>
-      </div>
+    <div className="relative">
+      <AnimatePresence mode="wait" initial={false}>
+        {status === "success" ? (
+          <m.div
+            key="ok"
+            className="relative min-h-[420px] pt-6"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            role="status"
+            aria-live="polite"
+          >
+            <m.p
+              className="inline-block font-stencil font-black leading-[0.85] text-ink [font-size:clamp(4.5rem,3rem+7vw,9rem)]"
+              initial={reduce ? false : { scale: 1.45, rotate: -9, opacity: 0 }}
+              animate={{ scale: 1, rotate: -4, opacity: 1 }}
+              transition={{ duration: 0.32, ease: ease.cinta }}
+            >
+              {t("success.stamp")}
+            </m.p>
+            <m.div
+              aria-hidden
+              className="mt-2 origin-left overflow-hidden"
+              initial={reduce ? false : { scaleX: 0 }}
+              animate={{ scaleX: 1 }}
+              transition={{ delay: 0.3, duration: 0.5, ease: ease.cinta }}
+            >
+              <Tape print={hero("tape")} className="h-10 -rotate-2" />
+            </m.div>
+            <h3 className="mt-10 font-display text-h3 font-extrabold">
+              {t("success.title")}
+            </h3>
+            <p className="mt-3 max-w-[28rem] text-lead">{t("success.body")}</p>
+            <button
+              type="button"
+              className="mt-8 font-body font-semibold underline decoration-2 underline-offset-4"
+              onClick={() => {
+                reset();
+                setFiles([]);
+                setStatus("idle");
+              }}
+            >
+              {t("success.again")}
+            </button>
+          </m.div>
+        ) : (
+          <m.form
+            key="form"
+            noValidate
+            onSubmit={onSubmit}
+            className="grid gap-7"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0, transition: { duration: 0.18 } }}
+            aria-busy={status === "sending"}
+          >
+            <div className="grid gap-7 md:grid-cols-2 md:gap-6">
+              <Field
+                label={t("fields.name")}
+                error={err("name")}
+                id={`${uid}-name`}
+              >
+                <input
+                  id={`${uid}-name`}
+                  autoComplete="name"
+                  placeholder={t("placeholders.name")}
+                  className={inputCls(!!errors.name)}
+                  aria-invalid={!!errors.name}
+                  aria-describedby={errors.name ? `${uid}-name-e` : undefined}
+                  {...register("name")}
+                />
+              </Field>
+              <Field
+                label={t("fields.phone")}
+                error={err("phone")}
+                id={`${uid}-phone`}
+              >
+                <input
+                  id={`${uid}-phone`}
+                  type="tel"
+                  inputMode="tel"
+                  autoComplete="tel"
+                  placeholder={t("placeholders.phone")}
+                  className={inputCls(!!errors.phone)}
+                  aria-invalid={!!errors.phone}
+                  aria-describedby={errors.phone ? `${uid}-phone-e` : undefined}
+                  {...register("phone")}
+                />
+              </Field>
+            </div>
 
-      <Field className="mt-5" error={errors.message?.message} id="message" label={t("message")}>
-        <textarea
-          {...register("message")}
-          className={cn(inputClass, "min-h-[120px] resize-y")}
-          id="message"
-          rows={4}
-        />
-      </Field>
+            <fieldset>
+              <legend className="text-caption font-medium text-ink">
+                {t("fields.type")}
+              </legend>
+              <div className="mt-3 flex flex-wrap gap-2">
+                {PROJECT_TYPES.map((p) => (
+                  <label key={p} className="relative cursor-pointer">
+                    <input
+                      type="radio"
+                      value={p}
+                      className="peer sr-only"
+                      {...register("type")}
+                    />
+                    <span className="block px-4 py-3 font-body text-[0.875rem] font-medium leading-none text-ink shadow-[inset_0_0_0_1.5px_var(--ink)] transition-colors duration-150 hover:bg-ink/10 peer-checked:bg-ink peer-checked:text-paper peer-focus-visible:outline peer-focus-visible:outline-[3px] peer-focus-visible:outline-offset-2 peer-focus-visible:outline-ink">
+                      {t(`types.${p}`)}
+                    </span>
+                  </label>
+                ))}
+              </div>
+              {errors.type && <ErrorText>{err("type")}</ErrorText>}
+            </fieldset>
 
-      <p className="mt-3 text-step--1 text-ink-soft">{t("photoNote")}</p>
+            <div className="grid gap-7 md:grid-cols-2 md:gap-6">
+              <Field label={t("fields.area")} id={`${uid}-area`}>
+                <input
+                  id={`${uid}-area`}
+                  autoComplete="address-level2"
+                  placeholder={t("placeholders.area")}
+                  className={inputCls(false)}
+                  {...register("area")}
+                />
+              </Field>
+              <Field label={t("fields.size")} id={`${uid}-size`}>
+                <input
+                  id={`${uid}-size`}
+                  inputMode="numeric"
+                  placeholder={t("placeholders.size")}
+                  className={inputCls(false)}
+                  {...register("size")}
+                />
+              </Field>
+            </div>
 
-      {error && (
-        <p aria-live="assertive" className="mt-4 text-paint-orange-deep" role="alert">
-          {error}
-        </p>
-      )}
+            <Field label={t("fields.message")} id={`${uid}-msg`}>
+              <textarea
+                id={`${uid}-msg`}
+                rows={3}
+                placeholder={t("placeholders.message")}
+                className={cn(inputCls(false), "resize-none")}
+                {...register("message")}
+              />
+            </Field>
 
-      <Button
-        className="mt-6 w-full sm:w-auto"
-        disabled={!isValid || isSubmitting}
-        type="submit"
-      >
-        {isSubmitting ? t("submitting") : t("submit")}
-      </Button>
-    </form>
+            {/* Honeypot */}
+            <div
+              aria-hidden
+              className="absolute -left-[9999px] h-0 w-0 overflow-hidden"
+            >
+              <label>
+                Company
+                <input
+                  tabIndex={-1}
+                  autoComplete="off"
+                  {...register("company")}
+                />
+              </label>
+            </div>
+
+            <div className="flex flex-col gap-4 sm:flex-row sm:items-center">
+              <label className="relative inline-flex min-h-[56px] cursor-pointer items-center justify-center px-6 font-body font-semibold text-ink shadow-[inset_0_0_0_1.5px_var(--ink)] transition-colors hover:bg-ink hover:text-paper has-[:focus-visible]:outline has-[:focus-visible]:outline-[3px] has-[:focus-visible]:outline-offset-2 has-[:focus-visible]:outline-ink">
+                <input
+                  type="file"
+                  accept="image/*"
+                  multiple
+                  className="sr-only"
+                  onChange={(e) => setFiles(Array.from(e.target.files ?? []))}
+                />
+                {files.length
+                  ? t("photosSelected", { count: files.length })
+                  : t("fields.photos")}
+              </label>
+              <Button
+                type="submit"
+                variant="ink"
+                className="sm:flex-1"
+                disabled={status === "sending"}
+              >
+                {status === "sending" ? t("sending") : t("submit")}
+              </Button>
+            </div>
+
+            {status === "error" && (
+              <ErrorText role="alert">{t("errors.server")}</ErrorText>
+            )}
+            <p className="text-caption text-ink">
+              {t("privacy")}{" "}
+              <span className="underline decoration-1 underline-offset-2">
+                {t("privacyLink")}
+              </span>
+              .
+            </p>
+          </m.form>
+        )}
+      </AnimatePresence>
+    </div>
   );
 }
 
-const inputClass =
-  "w-full rounded-md-brand border border-line bg-bg px-4 py-3 text-ink transition-colors focus:border-eco-green focus:outline-none focus:ring-2 focus:ring-eco-green/30";
+const inputCls = (invalid: boolean) =>
+  cn(
+    "w-full bg-transparent py-3 font-body text-[1.0625rem] text-ink outline-none placeholder:text-ink/60 transition-[box-shadow] duration-150 focus-visible:outline-none",
+    invalid
+      ? "shadow-[inset_0_-3px_0_0_var(--ink)]"
+      : "shadow-[inset_0_-1.5px_0_0_var(--ink)] focus:shadow-[inset_0_-3px_0_0_var(--ink)]",
+  );
 
 function Field({
-  id,
   label,
   error,
+  id,
   children,
-  className,
 }: {
-  id: string;
   label: string;
   error?: string;
-  children: React.ReactNode;
-  className?: string;
+  id: string;
+  children: ReactNode;
 }) {
   return (
-    <div className={className}>
-      <label className="mb-1.5 block text-step--1 font-medium text-ink" htmlFor={id}>
+    <div>
+      <label htmlFor={id} className="text-caption font-medium text-ink">
         {label}
       </label>
       {children}
-      {error && (
-        <p className="mt-1 text-step--1 text-paint-orange-deep" role="alert">
-          {error}
-        </p>
-      )}
+      {error && <ErrorText id={`${id}-e`}>{error}</ErrorText>}
     </div>
+  );
+}
+
+function ErrorText({
+  children,
+  id,
+  role,
+}: {
+  children: ReactNode;
+  id?: string;
+  role?: string;
+}) {
+  return (
+    <p
+      id={id}
+      role={role}
+      className="mt-2 flex items-center gap-2 text-caption font-semibold text-ink"
+    >
+      <span aria-hidden className="block size-2 bg-ink" />
+      {children}
+    </p>
   );
 }
